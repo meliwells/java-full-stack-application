@@ -1,1 +1,106 @@
 # java-full-stack-application
+
+# readme.me
+
+## Planning
+
+### Define Project Scope:
+
+#### Idea 1
+Wedding Checklist and To-Do Manager
+* Pre-made checklist with common wedding tasks
+* Users can add tasks or select ones to be removed and mark tasks as complete
+* Reminder notifications for upcoming tasks ?
+
+##### Scope
+
+###### Must Have
+* User authentication (login, sign up)
+* Add/ delete tasks
+* Mark tasks as complete
+
+###### Could Have
+* Due dates with days until and overdue notice
+
+###### Won't Have
+* Ability to email users regarding due dates
+
+##### Objectives
+* Mobile-responsive and accessible via web and mobile
+* Develop within 2 weeks
+* Wedding planning app that allows a wedding planner to manager their team
+
+### Administrator User Story
+* Deletes the tasks that user marked for deletion
+
+### Administrator User Story
+* User accesses web portal
+* User logs in
+* If user is administrator, presented with administrator portal
+* In admin portal, present a table of items to be deleted
+* Admin can select an item
+    * Admin can delete the item
+
+ 
+#### Idea 2
+Disney Snack Wishlist
+* Users can browse a list of famous Disney park snacks.
+* Mark snacks as "tried" or "want to try."
+* Simple description and location of where to find each snack.
+
+
+##### Scope
+
+###### Must Have
+* User authentication (login, sign up)
+* Mark the treats as tried or want to try
+
+###### Could Have
+* Ability for user to leave a review
+
+###### Won't Have
+* Ability to order snacks
+
+##### Objectives
+* Mobile-responsive and accessible via web and mobile
+* Develop within 2 weeks
+
+### Administrator User Story
+* User accesses web portal
+* User logs in
+* If user is administrator, presented with administrator portal
+* In admin portal present a table of snack data
+* Admin can add a snack to the list
+    * Add title
+    * Add description
+    * Add location
+    * Add price
+    * If snack already exists, display item exists
+    * Allow admin to update a snack on the list
+* Admin can select a snack to view the info
+    * Delete a snack on the list
+    * Update a title of a snack on the list
+    * Update a location of a snack on the list
+    * Update a description of a snack on the list
+    * Update a price of a snack on the list
+
+##### Project Roadmap
+  1. 3-10 Monday
+  1. 3-11 Tuesday - React all day
+  2. 3-12 Wednesday - React Half day, Design
+  3. 3-13 Thursday - React all day
+  4. 3-14 Friday - React Half day, Design
+  5. 3-15 Saturday - Project Design
+  6. 3-16 Sunday - Project Design
+  7. 3-17 Monday - Python all day
+  8. 3-18 Tuesday - Python all day
+  9. 3-19 Wednesday - Python all day
+  10. 3-20 Thursday - Project
+  11. 3-21 Friday - Project, Cloud afternoon
+  12. 3-22 Saturday - Project
+  13. 3-23 Sunday - Project
+  14. 3-24 Monday - Project, Cloud afternoon
+  15. 3-25 Tuesday - Project
+  16. 3-26 Wednesday - Project, Cloud afternoon
+  17. 3-27 Thursday - Project
+  18. 3-28 Friday - Presentation Day
