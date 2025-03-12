@@ -30,7 +30,7 @@ Disney Snack Wishlist
 * Mobile-responsive and accessible via web and mobile
 * Develop within 2 weeks
 
-### Administrator User Story
+#### Administrator User Story
 * User accesses web portal
 * User logs in
 * If user is administrator, presented with administrator portal
@@ -48,6 +48,24 @@ Disney Snack Wishlist
     * Update a location of a snack on the list
     * Update a description of a snack on the list
     * Update a price of a snack on the list
+ 
+#### User Story
+* User accesses web portal
+* User logs in
+     * User can select a park
+        * User is presented with the list of snacks at the park
+        * User can mark want to try, tried and/or favorites
+     * User can select to see list they created
+        * User can view snacks that have been "marked" and make changes (ex. changed from want to try to try)
+      
+##### Technology Stack
+* Backend
+     * Java: Core business logic and data processing
+     * Spring Boot: Production ready configuration files
+     * MySQL: Relational database for storing app data (rally data, users data)
+     * Node.js: API server requests
+* Frontend
+     * React.js: Component library for modern app design
 
 ##### Project Roadmap
   1. 3-10 Monday
