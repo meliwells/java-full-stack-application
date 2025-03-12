@@ -6,46 +6,10 @@
 
 ### Define Project Scope:
 
-#### Idea 1
-Wedding Checklist and To-Do Manager
-* Pre-made checklist with common wedding tasks
-* Users can add tasks or select ones to be removed and mark tasks as complete
-* Reminder notifications for upcoming tasks ?
-
-##### Scope
-
-###### Must Have
-* User authentication (login, sign up)
-* Add/ delete tasks
-* Mark tasks as complete
-
-###### Could Have
-* Due dates with days until and overdue notice
-
-###### Won't Have
-* Ability to email users regarding due dates
-
-##### Objectives
-* Mobile-responsive and accessible via web and mobile
-* Develop within 2 weeks
-* Wedding planning app that allows a wedding planner to manager their team
-
-### Administrator User Story
-* Deletes the tasks that user marked for deletion
-
-### Administrator User Story
-* User accesses web portal
-* User logs in
-* If user is administrator, presented with administrator portal
-* In admin portal, present a table of items to be deleted
-* Admin can select an item
-    * Admin can delete the item
-
- 
-#### Idea 2
 Disney Snack Wishlist
 * Users can browse a list of famous Disney park snacks.
-* Mark snacks as "tried" or "want to try."
+* Mark the treats as "want to try", "tried", and/or "favorite".
+* Add snacks as their favorite 
 * Simple description and location of where to find each snack.
 
 
@@ -53,7 +17,8 @@ Disney Snack Wishlist
 
 ###### Must Have
 * User authentication (login, sign up)
-* Mark the treats as tried or want to try
+* Mark the treats as want to try, tried, and/or favorite. 
+* Ability to mark snacks as favorites
 
 ###### Could Have
 * Ability for user to leave a review
