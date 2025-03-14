@@ -2,6 +2,9 @@
 
 # readme.me
 
+## Disney Snack Wishlist App
+This app will allow a user to login and view a list of popular snacks at Disneyland. The user can select a snack from the list to see a description, the price, and where to find the snack in the park. The user will also have the ability to click if they want to try a snack, if they have tried a snack, and if a snack is a favorite. When the user logs in, the list will be shown along with any selections they made regarding trying the snack.
+
 ## Planning
 
 ### Define Project Scope:
