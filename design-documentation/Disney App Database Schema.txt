@@ -1,0 +1,34 @@
+﻿Database Schema
+
+
+Tables
+
+
+1. Users (users)
+* users_id (Primary Key Auto_Increment)
+* users_name (VARCHAR)
+* email (VARCHAR, Unique)
+* role (ENUM: "user", "admin")
+* Password_hash (Varchar)
+
+
+2. Snacks (snacks)
+* snacks_id (Primary Key auto_increment)
+* title (VARCHAR, Unique)
+* Description (Text)
+* Price (Decimal)
+* park_location (Varchar, Foreign key referencing location)
+
+
+3. Location (location)
+* location_id (Primary Key auto_increment)
+* park_location (varchar)
+
+
+4. User Snack Preference (user_snack_preference)
+* user_snack_preference_id (Primary Key auto_increment)
+* users_id (Foreign Key referencing users.id)
+* snacks_id (Foreign Key referencing snacks.id)
+* want_to_try (Boolean)
+* tried (Boolean)
+* favorite (Boolean)
