@@ -37,6 +37,7 @@ export default function App() {
               <strong>{snacks.title}</strong> - ${snacks.price} 
               </div>
               <p>{snacks.description}</p>
+              <p>{snacks.location}</p>
             </li>
           ))}
         </ul>
