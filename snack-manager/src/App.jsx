@@ -7,21 +7,21 @@ export default function App() {
     const[error, setError] = useState(null);
 
     useEffect(() => {
-      fetch('http://localhost:8080/disneySnacks/snacks')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
+      fetch('http://localhost:8080/disneySnacks/snacks', 
+        {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
       })
+        
+      .then(data => data.json())  
+
       .then(data => {
-        setData(data);
-        setLoading(false);
+        console.log(data)
       })
-      .catch(error => {
-        setError(error);
-        setLoading(false);
-      });
+   ;
     }, []);
 
     if (loading) return <p>Loading...</p>;
