@@ -77,3 +77,4 @@ INSERT INTO user_snack_preference (users_id, snacks_id, want_to_try, tried, favo
 (4, 2, FALSE, TRUE, FALSE),
 (6, 4, TRUE, FALSE, FALSE);
 
+SELECT * FROM user;
