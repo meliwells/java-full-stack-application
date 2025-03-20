@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import SignIn from './components/SignIn';
+import { Link } from 'react-router-dom';
 
 export default function App() {
    return (
@@ -13,7 +16,7 @@ export default function App() {
             alt="mainstreet"
           />
         </div>  
-        <a href="sign_in.html" className="login_button">Login</a>
+        <Link to="/signIn" className="login_button">Login</Link>
         <div className="disneyImage">
           <img 
             src="images/disney.png" 
