@@ -1,40 +1,20 @@
 package com.assessment.configuration;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
-
-import java.util.List;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class CorsConfig {
+public class CorsConfig implements WebMvcConfigurer {
 
-    @Bean
-    public CorsFilter corsFilter() {
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(false);
-        config.setAllowedOrigins(List.of("*"));
-        config.setAllowedMethods(List.of("POST", "PUT", "PATCH", "GET", "OPTIONS", "DELETE"));
 
-        config.setAllowedHeaders(List.of(
-                "Authorization",
-                "Accept",
-                "X-Requested-With",
-                "Content-Type",
-                "Access-Control-Request-Method",
-                "Access-Control-Request-Headers"));
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:5174","http://localhost:5173","http://localhost:5175" )
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true);
 
-        config.setExposedHeaders(List.of(
-                "Access-Control-Allow-Origin",
-                "Access-Control-Allow-Credentials"));
-
-        config.setMaxAge(3600L);
-
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config);
-
-        return new CorsFilter(source);
     }
 }
