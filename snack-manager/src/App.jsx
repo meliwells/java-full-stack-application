@@ -14,7 +14,7 @@ export default function App() {
           />
         </div>  
         <a href="sign_in.html" className="login_button">Login</a>
-        <div className="homeImage">
+        <div className="disneyImage">
           <img 
             src="images/disney.png" 
             alt="disneyWord"
@@ -24,7 +24,7 @@ export default function App() {
     </div>
   );
 
-
+  }
 
 
  
