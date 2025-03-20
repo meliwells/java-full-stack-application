@@ -1,5 +1,6 @@
 
 body {
+  font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -162,8 +163,9 @@ label {
 
 .SnackList h1 {
   background-color: #efc88bff;
-  padding: 0;
+  padding: 5px;
   margin: 0;
+  font-size: 25px;
 }
 
 .snack_list_button {

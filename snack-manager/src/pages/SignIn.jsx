@@ -5,43 +5,58 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function SignIn() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [inputs, setInputs] = useState({ email: "", password: ""});
+    const navigate = useNavigate();
+    
+    const handleChange = (event) => {
+      const name = event.target.name;
+      const value = event.target.value;
+      setInputs(values => ({...values, [name]: value}))
+    }
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      alert(`Email: ${inputs.email}, Password: ${inputs.password}`);
+
+      navigate("/snackList");
+    };
 
 
-   return (
-    <div className="SignIn">
-      {/* <Header />
+    return (
+      <div className="SignIn">
+        
         <div className="form">
-            <h2>Sign In</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-        </div>
-        <div>
-            <label htmlFor="password">Password:</label>
-            <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+          <h2>Sign In</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label>Enter Email:</label>
+              <input
+                type="email"
+                name="email"
+                value={inputs.email}
+                onChange={handleChange}
                 required
-            />
+              />
+            </div>
+  
+            <div>
+              <label>Enter Password:</label>
+              <input
+                type="password"
+                name="password"
+                value={inputs.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <button type="submit" className="login_button">Sign In</button>
+          </form>
         </div>
-        <Link to="/snackList" className="login_button">Sign In</Link>
-      </form>
-    </div>       
-      <Footer /> */}
-    </div>
-  );
+        
+      </div>
+    );
 }
