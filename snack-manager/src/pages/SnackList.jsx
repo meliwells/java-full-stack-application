@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 
 export default function SnackList() {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); 
 
 useEffect(() => {
     fetch('http://localhost:8080/disneySnacks/snacks', 
@@ -21,20 +19,20 @@ useEffect(() => {
       },
     })
       
-    .then(data => data.json())  
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! ${response.status}`);
+      }
+      return response.json();
+    })
 
     .then(data => {
-      console.log(data)
-    })
- ;
+      setData(data);
+    });
   }, []);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Something went wrong. Please try again later</p>;
 
   return (
     <div className="SnackList">
-      <Header />
       <h1>Snack List</h1>
       <ul>
         {data.map(snacks => (
@@ -47,7 +45,6 @@ useEffect(() => {
           </li>
         ))}
       </ul>
-      <Footer />
     </div>
   );
 }  
