@@ -8,17 +8,21 @@ body {
   margin: 0;
 }
 
-button {
-  width: 100%;
+.signIn_button {
+  width: auto;
   background-color: #d1495b;
   color: white;
-  padding: 10px;
+  padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  display: block;
+  margin: 10px auto;
+  align-items: center;
+  text-align: center;
 }
 
-button:hover {
+.signIn_button:hover {
   background-color: #8693abff;
 }
 
@@ -37,6 +41,38 @@ button:hover {
   max-width: 600px;
   align-items: center;
   padding-bottom: 15px;
+}
+
+footer {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  background-color: #31393cff;
+  color: #efefef;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+form {
+  padding: 20px;
+  border-radius: 8px;
+  
+  width: 300px;
+  text-align: left;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
 }
 
 header h1 {
@@ -77,6 +113,21 @@ header {
   margin: 0 auto;
 }
 
+input {
+  background-color: #efc88bff;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
 .login_button {
   background-color: #d1495b;
   border: none;
@@ -89,6 +140,10 @@ header {
   margin: 20px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.login_button:hover {
+  background-color: #8693abff;
 }
 
 .logo {
@@ -105,43 +160,6 @@ header {
   max-width: 30%;
   height: auto;
   margin: 0;
-}
-
-footer {
-  font-size: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0px;
-  background-color: #31393cff;
-  color: #efefef;
-}
-
-form {
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 300px;
-}
-
-h2 {
-  text-align: center;
-  color: #333;
-}
-
-input {
-  background-color: #efc88bff;
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
 }
 
 .pretzel {

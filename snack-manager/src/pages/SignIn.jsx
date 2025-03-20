@@ -28,7 +28,6 @@ export default function SignIn() {
 
     return (
       <div className="SignIn">
-        
         <div className="form">
           <h2>Sign In</h2>
           <form onSubmit={handleSubmit}>
@@ -53,7 +52,7 @@ export default function SignIn() {
                 required
               />
             </div>
-            <button type="submit" className="login_button">Sign In</button>
+            <button type="submit" className="signIn_button">Sign In</button>
           </form>
         </div>
         
