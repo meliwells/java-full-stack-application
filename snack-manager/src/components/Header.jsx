@@ -6,7 +6,6 @@ function Header() {
             <section className="logo">
                 <img 
                     src="images/disney_castle.jpg" 
-                    style={{ maxWidth:"100%", height: "auto" }} 
                     alt="castle"
                 />
             </section>
