@@ -1,3 +1,10 @@
+import { useState, useEffect } from 'react';
+import '../App.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 export default function SnackList() {
 
@@ -23,7 +30,8 @@ useEffect(() => {
   if (error) return <p>Something went wrong. Please try again later</p>;
 
   return (
-    <div>
+    <div className="SnackList">
+      <Header />
       <h1>Snack List</h1>
       <ul>
         {data.map(snacks => (
@@ -36,6 +44,7 @@ useEffect(() => {
           </li>
         ))}
       </ul>
+      <Footer />
     </div>
   );
 }  
