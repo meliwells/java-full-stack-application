@@ -14,7 +14,7 @@ export default function SignIn() {
 
    return (
     <div className="SignIn">
-      <Header />
+      {/* <Header />
         <div className="form">
             <h2>Sign In</h2>
             <form onSubmit={handleSubmit}>
@@ -41,7 +41,7 @@ export default function SignIn() {
         <Link to="/snackList" className="login_button">Login</Link>
       </form>
     </div>       
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
