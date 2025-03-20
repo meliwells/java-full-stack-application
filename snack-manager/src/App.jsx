@@ -13,7 +13,13 @@ export default function App() {
             alt="mainstreet"
           />
         </div>  
-        <a href="sign_in.html" class="login_button">Login</a>
+        <a href="sign_in.html" className="login_button">Login</a>
+        <div className="homeImage">
+          <img 
+            src="images/disney.png" 
+            alt="disneyWord"
+          />
+        </div>  
       <Footer />
     </div>
   );

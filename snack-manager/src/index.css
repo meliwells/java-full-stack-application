@@ -1,5 +1,4 @@
 
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -34,6 +33,15 @@ header {
   margin: 0;
 }
 
+.home img {
+
+  height: auto;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
 header h1 {
   margin: 0px;
   font-size: 30px;
@@ -42,9 +50,6 @@ header h1 {
   margin-right: 20px;
 }
 
-.main_street_image img {
-  width: 100%;
-}
 
 .login_button {
   background-color: #d1495b;
@@ -61,9 +66,8 @@ header h1 {
 }
 
 .disney img {
-  width: 30%;
+  max-width: 600px;
   align-items: center;
-  padding: 50px;
 }
 
 form {
