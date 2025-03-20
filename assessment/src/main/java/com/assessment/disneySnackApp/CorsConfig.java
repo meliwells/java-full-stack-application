@@ -1,4 +1,4 @@
-package com.assessment.configuration;
+package com.assessment.disneySnackApp;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

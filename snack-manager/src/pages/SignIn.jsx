@@ -38,7 +38,7 @@ export default function SignIn() {
                 required
             />
         </div>
-        <Link to="/snackList" className="login_button">Login</Link>
+        <Link to="/snackList" className="login_button">Sign In</Link>
       </form>
     </div>       
       <Footer /> */}

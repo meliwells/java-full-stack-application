@@ -19,7 +19,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/disneySnacks")
-@CrossOrigin(origins = "http://localhost:3000")
 public class SnackController implements Serializable {
     @Autowired
     LocationRepository locationRepository;

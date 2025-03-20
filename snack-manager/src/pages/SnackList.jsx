@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom';
 
 
 export default function SnackList() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); 
 
 useEffect(() => {
     fetch('http://localhost:8080/disneySnacks/snacks', 
