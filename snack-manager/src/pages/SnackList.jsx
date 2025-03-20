@@ -34,14 +34,17 @@ useEffect(() => {
   return (
     <div className="SnackList">
       <h1>Snack List</h1>
+      <h2>Click on a snack item to view datails</h2>
       <ul>
         {data.map(snacks => (
           <li key={snacks.snacksId} className='snack-item'>
+            <Link to={`/snackDetails/${snacks.snacksId}`} style={{ textDecoration: 'none', color: 'inherit' }}>
             <div>
             <strong>{snacks.title}</strong> - ${snacks.price} 
             </div>
             <p>{snacks.description}</p>
-            <p>{snacks.location}</p>
+            <p>{snacks.park_location}</p>
+            </Link>
           </li>
         ))}
       </ul>

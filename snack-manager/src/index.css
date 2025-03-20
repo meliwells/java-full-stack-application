@@ -186,6 +186,14 @@ label {
   font-size: 25px;
 }
 
+.SnackList h2 {
+  background-color: #efc88bff;
+  padding-top: 0px;
+  margin: 0px;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+
 .snack_list_button {
   display: block;
   background-color: #d1495b;

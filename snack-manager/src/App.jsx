@@ -15,6 +15,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/signIn" element={<SignIn />} />
             <Route path="/snackList" element={<SnackList />} />
+            
           </Routes>
           <Footer />
         </div>
