@@ -7,71 +7,18 @@ body {
   margin: 0;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0px;
-  background-color: #8693abff;
-  color: white;
-  height: auto;
-  box-sizing: border-box;
-  padding: 0px;
-  margin: 0px;
-}
-
-.logo {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0 auto; 
-  max-width: 600px; 
-  text-align: center; 
-  box-sizing: border-box;
-}
-
-.logo img {
-  max-width: 30%;
-  height: auto;
-  margin: 0;
-}
-
-.homeImage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto; 
-  max-width: 600px; 
-  text-align: center; 
-  box-sizing: border-box;
-}
-
-.homeImage img {
-  max-width: 100%;
-  height: auto;
-  display: block; 
-  margin: 0 auto;
-}
-
-header h1 {
-  margin: 0px;
-  font-size: 30px;
-  color:white;
-  text-align: center;
-}
-
-.login_button {
+button {
+  width: 100%;
   background-color: #d1495b;
-  border: none;
   color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #8693abff;
 }
 
 .disneyImage {
@@ -91,6 +38,84 @@ header h1 {
   padding-bottom: 15px;
 }
 
+header h1 {
+  margin: 0px;
+  font-size: 30px;
+  color:white;
+  text-align: center;
+  white-space: nowrap;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #8693abff;
+  color: white;
+  height: auto;
+  box-sizing: border-box;
+  padding-right: 20px;
+  margin: 0px;
+}
+
+.homeImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; 
+  max-width: 600px; 
+  text-align: center; 
+  box-sizing: border-box;
+}
+
+.homeImage img {
+  max-width: 100%;
+  height: auto;
+  display: block; 
+  margin: 0 auto;
+}
+
+.login_button {
+  background-color: #d1495b;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto; 
+  max-width: 600px; 
+  text-align: center; 
+  box-sizing: border-box;
+}
+
+.logo img {
+  max-width: 30%;
+  height: auto;
+  margin: 0;
+}
+
+footer {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  background-color: #31393cff;
+  color: #efefef;
+}
+
 form {
   padding: 20px;
   border-radius: 8px;
@@ -103,12 +128,6 @@ h2 {
   color: #333;
 }
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
 input {
   background-color: #efc88bff;
   width: 100%;
@@ -118,18 +137,33 @@ input {
   border-radius: 4px;
 }
 
-button {
-  width: 100%;
-  background-color: #d1495b;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
 }
 
-button:hover {
-  background-color: #8693abff;
+.pretzel {
+  text-align: center;
+}
+
+.pretzel img {
+  margin: auto;
+  display: block; 
+  width: 20%;
+  height: 20%;
+  padding-top: 20px;
+}
+
+.snack-item {
+  list-style-type: none;
+  padding: 10px;
+}
+
+.SnackList h1 {
+  background-color: #efc88bff;
+  padding: 0;
+  margin: 0;
 }
 
 .snack_list_button {
@@ -147,29 +181,6 @@ button:hover {
   border-radius: 5px;
   width: fit-content;
 }
-
-.pretzel {
-  text-align: center;
-}
-
-.pretzel img {
-  margin: auto;
-  display: block; 
-  width: 20%;
-  height: 20%;
-  padding-top: 20px;
-}
-
-footer {
-  font-size: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0px;
-  background-color: #31393cff;
-  color: #efefef;
-}
-
 
 
 @media (max-width: 600px) {
