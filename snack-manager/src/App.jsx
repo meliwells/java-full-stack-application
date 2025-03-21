@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import SignIn from './pages/SignIn';
 import Home from './pages/Home'; 
 import SnackList from './pages/SnackList';
+import SnackDetails from './components/SnackDetails';
 
 export default function App() {
    return (
@@ -15,7 +16,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/signIn" element={<SignIn />} />
             <Route path="/snackList" element={<SnackList />} />
-            
+            <Route path="/snackDetails/:snacksId" element={<SnackDetails />} />
           </Routes>
           <Footer />
         </div>

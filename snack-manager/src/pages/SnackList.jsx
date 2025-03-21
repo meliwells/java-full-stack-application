@@ -10,7 +10,7 @@ export default function SnackList() {
   const [data, setData] = useState([]);
 
 useEffect(() => {
-    fetch('http://localhost:8080/disneySnacks/snacks', 
+    fetch(`http://localhost:8080/disneySnacks/snacks`, 
       {
       method: 'GET',
       headers: {
@@ -44,6 +44,7 @@ useEffect(() => {
             </div>
             <p>{snacks.description}</p>
             <p>{snacks.park_location}</p>
+            <p>----------------------</p>
             </Link>
           </li>
         ))}
