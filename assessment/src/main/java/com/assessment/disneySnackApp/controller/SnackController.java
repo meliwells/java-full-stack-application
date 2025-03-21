@@ -9,10 +9,7 @@ import com.assessment.disneySnackApp.data.repository.SnacksRepository;
 import com.assessment.disneySnackApp.data.repository.UserSnackPreferenceRepository;
 import com.assessment.disneySnackApp.data.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -40,4 +37,10 @@ public class SnackController implements Serializable {
 
     @GetMapping("/userSnackPreference")
     public List<UserSnackPreference> getAllUserSnackPreferences() { return userSnackPreferenceRepository.findAll(); }
+
+    //To get a single id
+    @GetMapping("snacks/{snacksId}")
+    public Snacks getSnacks(@PathVariable int snacksId) {
+        return snacksRepository.findById(snacksId).get();
+    }
 }
