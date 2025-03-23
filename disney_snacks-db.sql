@@ -59,17 +59,17 @@ INSERT INTO users (users_name, email, role, password_hash) VALUES
 ('Casey Phillips', 'casey.phillips57@example.com', 'user', '$2y$10$Z4wHtQDrA7pF6TBcEV2MHQ8PBvN9XqRdWLKJfyT4XjtMW37P0UKTe');
 
 INSERT INTO snacks (title, image_path, description, price, location_id) VALUES 
-('Dole Pineapple Whip','snack-manager\public\Images\dole_whip.jpg', 'A refreshing soft-serve pineapple dessert loved by many', 5.00, 1), 
-('Mickey Pretzel', 'snack-manager\public\Images\pretzel.jpg', 'A soft pretzel shaped like Mickey Mouse, served warm and salty', 6.00, 2), 
-('Churro', 'snack-manager\public\Images\churro.jpg', 'Classic cinnamon-sugar-coated churro, a fan-favorite Disney treat', 4.50, 6), 
-('Turkey Leg', 'snack-manager\public\Images\turkey_leg.jpg', 'A massive, flavorful smoked turkey leg, iconic at Disney parks', 12.50, 4), 
-('Mickey Chocolate Chip Cookie', 'snack-manager\public\Images\chocolate_chip_cookie.jpg', 'A large chocolate chip cookie shaped like Mickey Mouse', 4.00, 5), 
-('Mickey Ice Cream Sandwich', 'snack-manager\public\Images\icecream.jpg', 'Vanilla ice cream sandwiched between two chocolate cookies in Mickey shape', 4.50, 6), 
-('Cinnamon Roll', 'snack-manager\public\Images\cinnamon_roll.jpg', 'A warm and gooey cinnamon roll, topped with cream cheese frosting', 7.00, 3), 
-('Corndog', 'snack-manager\public\Images\corndog.jpg', 'A classic battered and fried corndog, served with dipping sauce', 8.00, 2), 
-('Mickey Beignets', 'snack-manager\public\Images\beignet.jpg', 'Puffy, fried beignets dusted with powdered sugar in Mickey shapes', 7.00, 3), 
-('Popcorn', 'snack-manager\public\Images\popcorn.jpg', 'Freshly popped buttery popcorn, served in collectible Disney buckets', 6.00, 6), 
-('Funnel Cake', 'snack-manager\public\Images\funnel_cake.jpg', 'A crispy and sweet funnel cake topped with powdered sugar and optional toppings', 7.50, 2);
+('Dole Pineapple Whip','/dole_whip.jpg', 'A refreshing soft-serve pineapple dessert loved by many', 5.00, 1), 
+('Mickey Pretzel', '/pretzel.jpg', 'A soft pretzel shaped like Mickey Mouse, served warm and salty', 6.00, 2), 
+('Churro', '/churro.jpg', 'Classic cinnamon-sugar-coated churro, a fan-favorite Disney treat', 4.50, 6), 
+('Turkey Leg', '/turkey_leg.jpg', 'A massive, flavorful smoked turkey leg, iconic at Disney parks', 12.50, 4), 
+('Mickey Chocolate Chip Cookie', '/chocolate _chip_cookie.jpg', 'A large chocolate chip cookie shaped like Mickey Mouse', 4.00, 5), 
+('Mickey Ice Cream Sandwich', '/icecream.jpg', 'Vanilla ice cream sandwiched between two chocolate cookies in Mickey shape', 4.50, 6), 
+('Cinnamon Roll', '/cinnamon_roll.jpg', 'A warm and gooey cinnamon roll, topped with cream cheese frosting', 7.00, 3), 
+('Corndog', '/corndog.jpg', 'A classic battered and fried corndog, served with dipping sauce', 8.00, 2), 
+('Mickey Beignets', '/beignet.jpg', 'Puffy, fried beignets dusted with powdered sugar in Mickey shapes', 7.00, 3), 
+('Popcorn', '/popcorn.jpg', 'Freshly popped buttery popcorn, served in collectible Disney buckets', 6.00, 6), 
+('Funnel Cake', '/funnel_cake.jpg', 'A crispy and sweet funnel cake topped with powdered sugar and optional toppings', 7.50, 2);
 
 INSERT INTO user_snack_preference (users_id, snacks_id, want_to_try, tried, favorite) VALUES
 (3, 1, FALSE, TRUE, TRUE),

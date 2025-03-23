@@ -203,6 +203,9 @@ label {
 
 .SnackDetails img {
   padding-top: 10px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .snackDetails-button {
@@ -255,6 +258,17 @@ width: fit-content;
   cursor: pointer;
   border-radius: 5px;
   width: fit-content;
+}
+
+.snack-preference {
+  padding: 20px;
+  color: #d1495b;
+  font-weight: bold;
+}
+
+.snack-preference span {
+  margin-bottom: 10px;
+  display: block;
 }
 
 @media (max-width: 600px) {

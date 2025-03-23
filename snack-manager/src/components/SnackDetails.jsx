@@ -42,7 +42,7 @@ useEffect(() => {
     }, [snacksId]);
 
     if (!snack) return <p>No snack details available.</p>;
-    console.log(snack.image_path) //testing images - take out after fixed
+    console.log(snack.imagePath)
 
     const handleCheckboxChoice = (event) => {
       const { name, checked } = event.target;
@@ -58,7 +58,7 @@ useEffect(() => {
 
 return (
     <div className="SnackDetails">
-      <img src={`/images/${snack.image_path}`} alt={snack.title} />
+      <img src={`/images/${snack.imagePath}`} alt={snack.title} />
         <h1><strong>{snack.title}</strong> - ${snack.price} </h1>
         <p>{snack.description}</p>
         <p>Available at: {snack.parkLocation}</p>
