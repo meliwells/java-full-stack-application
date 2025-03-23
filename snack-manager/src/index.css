@@ -28,7 +28,30 @@ body {
   height: 20px;
   background-color: #efc88bff;
   cursor: pointer;
-  margin-top: 18px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.checkbox-options input[type="checkbox"]::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  position: absolute;
+  border-radius: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -90%);
+}
+
+.checkbox-options input[type="checkbox"]:checked::before {
+  content: "✔";
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
 }
 
 .checkbox-options input[type="checkbox"]:checked {
@@ -74,10 +97,16 @@ footer {
 form {
   padding: 20px;
   border-radius: 8px;
-  
   width: 300px;
   text-align: left;
+  margin-top: 10px;
 }
+
+form input {
+ margin-top: 5px;
+ margin-bottom: 50px;
+}
+
 
 h2 {
   text-align: center;
@@ -141,12 +170,12 @@ label {
   background-color: #d1495b;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 12px 28px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 20px;
+  margin: 30px;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -169,6 +198,25 @@ label {
   max-width: 30%;
   height: auto;
   margin: 0;
+}
+
+.logout_button {
+  background-color: #d1495b;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px;
+  margin-bottom: 35px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.logout_button:hover {
+  background-color: #8693abff;
 }
 
 .pretzel {
@@ -213,11 +261,11 @@ display: block;
 background-color: #d1495b;
 border: none;
 color: white;
-padding: 15px 32px;
+padding: 10px 20px;
 text-align: center;
 text-decoration: none;
 display: inline-block;
-font-size: 16px;
+font-size: 15px;
 margin: 20px auto;
 cursor: pointer;
 border-radius: 5px;
@@ -227,6 +275,10 @@ width: fit-content;
 .snack-item {
   list-style-type: none;
   padding: 10px;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
 }
 
 .SnackList h1 {
@@ -249,7 +301,7 @@ width: fit-content;
   background-color: #d1495b;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 12px 28px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -261,7 +313,8 @@ width: fit-content;
 }
 
 .snack-preference {
-  padding: 20px;
+  padding: 5px;
+  padding-top: 0px;
   color: #d1495b;
   font-weight: bold;
 }

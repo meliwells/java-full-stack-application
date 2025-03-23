@@ -45,16 +45,19 @@ useEffect(() => {
             <div>
             <strong>{snacks.title}</strong> - ${snacks.price} 
             </div>
+            <p>-----------------</p>
             <div className="snack-preference">
               {selectedOptions[snacks.snacksId]?.wantToTry && <span>Want to try</span>}
               {selectedOptions[snacks.snacksId]?.tried && <span>Tried</span>}
               {selectedOptions[snacks.snacksId]?.favorite && <span>Favorite</span>}
             </div>
-            <p>----------------------</p>
             </Link>
           </li>
         ))}
       </ul>
+      <div className="louout-container">
+      <Link to="/" className="logout_button">Logout</Link>
+      </div>
     </div>
   );
 }  

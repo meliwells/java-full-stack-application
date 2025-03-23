@@ -33,7 +33,7 @@ useEffect(() => {
       })
   
       .then(data => {
-        console.log(data); //testing location - take out after fixed
+        console.log(snack); //testing location - take out after fixed
         setSnack(data);
       })
       .catch(error => {
@@ -46,16 +46,29 @@ useEffect(() => {
 
     const handleCheckboxChoice = (event) => {
       const { name, checked } = event.target;
-      
-      const updatedOptions = {
+    
+      let updatedOptions = { ...options, [name]: checked };
+    
+      if (name === "wantToTry" && checked) {
+        updatedOptions.tried = false;
+        updatedOptions.favorite = false;
+      } else if (name === "tried" && checked) {
+        updatedOptions.wantToTry = false;
+      } else if (name === "favorite" && checked && !updatedOptions.tried) {
+        return;
+      } else if (name === "favorite" && !checked) {
+        updatedOptions.favorite = false;
+      }
+    
+      const newSelectedOptions = {
         ...selectedOptions,
-        [snacksId]: { ...options, [name]: checked },
+        [snacksId]: updatedOptions,
       };
-
-      setSelectedOptions(updatedOptions);
-      localStorage.setItem("snackOptions", JSON.stringify(updatedOptions));
+    
+      setSelectedOptions(newSelectedOptions);
+      localStorage.setItem("snackOptions", JSON.stringify(newSelectedOptions));
     };
-
+    
 return (
     <div className="SnackDetails">
       <img src={`/images/${snack.imagePath}`} alt={snack.title} />
