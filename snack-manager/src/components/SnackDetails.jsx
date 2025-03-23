@@ -6,6 +6,15 @@ export default function SnackDetails() {
     const [snack, setSnack] = useState(null);
     const { snacksId } = useParams();
     const [error, setError] = useState(null);
+    const [selectedOptions, setSelectedOptions] = useState(() => {
+      return JSON.parse(localStorage.getItem("snackOptions")) || {};
+    });
+
+    const options = selectedOptions[snacksId] || {
+      favorite: false,
+      wantToTry: false,
+      tried: false,
+    };
     
 useEffect(() => {
     fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`,
@@ -24,6 +33,7 @@ useEffect(() => {
       })
   
       .then(data => {
+        console.log(data); //testing location - take out after fixed
         setSnack(data);
       })
       .catch(error => {
@@ -32,13 +42,60 @@ useEffect(() => {
     }, [snacksId]);
 
     if (!snack) return <p>No snack details available.</p>;
+    console.log(snack.image_path) //testing images - take out after fixed
+
+    const handleCheckboxChoice = (event) => {
+      const { name, checked } = event.target;
+      
+      const updatedOptions = {
+        ...selectedOptions,
+        [snacksId]: { ...options, [name]: checked },
+      };
+
+      setSelectedOptions(updatedOptions);
+      localStorage.setItem("snackOptions", JSON.stringify(updatedOptions));
+    };
 
 return (
     <div className="SnackDetails">
+      <img src={`/images/${snack.image_path}`} alt={snack.title} />
         <h1><strong>{snack.title}</strong> - ${snack.price} </h1>
         <p>{snack.description}</p>
-        <p>Available at: {snack.location}</p>
-        <Link to="/snackList" className="snackList_button">Return to snack list</Link>
+        <p>Available at: {snack.parkLocation}</p>
+        
+        <div className="checkbox-options">
+          <label>
+            <input
+            type="checkbox"
+            name="wantToTry"
+            checked={options.wantToTry}
+            onChange={handleCheckboxChoice}
+            />
+            Want to try
+          </label>
+
+          <label>
+            <input
+            type="checkbox"
+            name="tried"
+            checked={options.tried}
+            onChange={handleCheckboxChoice}
+            />
+            Tried
+          </label>
+
+          <label>
+            <input
+            type="checkbox"
+            name="favorite"
+            checked={options.favorite}
+            onChange={handleCheckboxChoice}
+            />
+            Favorite
+          </label>
+        </div>
+
+        <Link to="/snackList" className="snackDetails-button">Return to snack list</Link>
     </div>
       );
 }  

@@ -12,16 +12,19 @@ public class Snacks {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int snacksId;
     String title;
+    String imagePath;
     String description;
     double price;
     int locationId;
 
+
     public Snacks() {
     }
 
-    public Snacks(int snacksId, String title, String description, double price, int locationId) {
+    public Snacks(int snacksId, String title, String imagePath, String description, double price, int locationId) {
         this.snacksId = snacksId;
         this.title = title;
+        this.imagePath = imagePath;
         this.description = description;
         this.price = price;
         this.locationId = locationId;
@@ -41,6 +44,14 @@ public class Snacks {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public String getDescription() {
@@ -72,6 +83,7 @@ public class Snacks {
         return new StringJoiner(", ", Snacks.class.getSimpleName() + "[", "]")
                 .add("snacksId=" + snacksId)
                 .add("title='" + title + "'")
+                .add("imagePath='" + imagePath + "'")
                 .add("description='" + description + "'")
                 .add("price=" + price)
                 .add("locationId=" + locationId)

@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 
 export default function SnackList() {
   const [data, setData] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState(() => {
+    return JSON.parse(localStorage.getItem("snackOptions")) || {};
+  });
 
 useEffect(() => {
     fetch(`http://localhost:8080/disneySnacks/snacks`, 
@@ -42,8 +45,11 @@ useEffect(() => {
             <div>
             <strong>{snacks.title}</strong> - ${snacks.price} 
             </div>
-            <p>{snacks.description}</p>
-            <p>{snacks.park_location}</p>
+            <div className="snack-preference">
+              {selectedOptions[snacks.snacksId]?.wantToTry && <span>Want to try</span>}
+              {selectedOptions[snacks.snacksId]?.tried && <span>Tried</span>}
+              {selectedOptions[snacks.snacksId]?.favorite && <span>Favorite</span>}
+            </div>
             <p>----------------------</p>
             </Link>
           </li>

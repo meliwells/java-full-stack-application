@@ -18,6 +18,7 @@ CREATE TABLE users (
 CREATE TABLE snacks (
     snacks_id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(128) UNIQUE NOT NULL,
+    image_path VARCHAR(500),
     description TEXT NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     location_id int NOT NULL,
@@ -57,18 +58,18 @@ INSERT INTO users (users_name, email, role, password_hash) VALUES
 ('Parker Ellis', 'parker.ellis74@example.com', 'admin', '$2b$10$3Mw7EYwhAq5F8T7OPBNVQ67EVTZBnR2K1p7XgJwLPLs/WTgNE8WvQ'),
 ('Casey Phillips', 'casey.phillips57@example.com', 'user', '$2y$10$Z4wHtQDrA7pF6TBcEV2MHQ8PBvN9XqRdWLKJfyT4XjtMW37P0UKTe');
 
-INSERT INTO snacks (title, description, price, location_id) VALUES 
-('Dole Pineapple Whip', 'A refreshing soft-serve pineapple dessert loved by many', 5.00, 1), 
-('Mickey Pretzel', 'A soft pretzel shaped like Mickey Mouse, served warm and salty', 6.00, 2), 
-('Churro', 'Classic cinnamon-sugar-coated churro, a fan-favorite Disney treat', 4.50, 6), 
-('Turkey Leg', 'A massive, flavorful smoked turkey leg, iconic at Disney parks', 12.50, 4), 
-('Mickey Chocolate Chip Cookie', 'A large chocolate chip cookie shaped like Mickey Mouse', 4.00, 5), 
-('Mickey Ice Cream Sandwich', 'Vanilla ice cream sandwiched between two chocolate cookies in Mickey shape', 4.50, 6), 
-('Cinnamon Roll', 'A warm and gooey cinnamon roll, topped with cream cheese frosting', 7.00, 3), 
-('Corndog', 'A classic battered and fried corndog, served with dipping sauce', 8.00, 2), 
-('Mickey Beignets', 'Puffy, fried beignets dusted with powdered sugar in Mickey shapes', 7.00, 3), 
-('Popcorn', 'Freshly popped buttery popcorn, served in collectible Disney buckets', 6.00, 6), 
-('Funnel Cake', 'A crispy and sweet funnel cake topped with powdered sugar and optional toppings', 7.50, 2);
+INSERT INTO snacks (title, image_path, description, price, location_id) VALUES 
+('Dole Pineapple Whip','snack-manager\public\Images\dole_whip.jpg', 'A refreshing soft-serve pineapple dessert loved by many', 5.00, 1), 
+('Mickey Pretzel', 'snack-manager\public\Images\pretzel.jpg', 'A soft pretzel shaped like Mickey Mouse, served warm and salty', 6.00, 2), 
+('Churro', 'snack-manager\public\Images\churro.jpg', 'Classic cinnamon-sugar-coated churro, a fan-favorite Disney treat', 4.50, 6), 
+('Turkey Leg', 'snack-manager\public\Images\turkey_leg.jpg', 'A massive, flavorful smoked turkey leg, iconic at Disney parks', 12.50, 4), 
+('Mickey Chocolate Chip Cookie', 'snack-manager\public\Images\chocolate_chip_cookie.jpg', 'A large chocolate chip cookie shaped like Mickey Mouse', 4.00, 5), 
+('Mickey Ice Cream Sandwich', 'snack-manager\public\Images\icecream.jpg', 'Vanilla ice cream sandwiched between two chocolate cookies in Mickey shape', 4.50, 6), 
+('Cinnamon Roll', 'snack-manager\public\Images\cinnamon_roll.jpg', 'A warm and gooey cinnamon roll, topped with cream cheese frosting', 7.00, 3), 
+('Corndog', 'snack-manager\public\Images\corndog.jpg', 'A classic battered and fried corndog, served with dipping sauce', 8.00, 2), 
+('Mickey Beignets', 'snack-manager\public\Images\beignet.jpg', 'Puffy, fried beignets dusted with powdered sugar in Mickey shapes', 7.00, 3), 
+('Popcorn', 'snack-manager\public\Images\popcorn.jpg', 'Freshly popped buttery popcorn, served in collectible Disney buckets', 6.00, 6), 
+('Funnel Cake', 'snack-manager\public\Images\funnel_cake.jpg', 'A crispy and sweet funnel cake topped with powdered sugar and optional toppings', 7.50, 2);
 
 INSERT INTO user_snack_preference (users_id, snacks_id, want_to_try, tried, favorite) VALUES
 (3, 1, FALSE, TRUE, TRUE),
@@ -77,4 +78,12 @@ INSERT INTO user_snack_preference (users_id, snacks_id, want_to_try, tried, favo
 (4, 2, FALSE, TRUE, FALSE),
 (6, 4, TRUE, FALSE, FALSE);
 
+SELECT 
+    snacks.*,
+    location.park_location
+FROM
+    snacks
+INNER JOIN
+    location ON snacks.location_id = location.location_id;
+	
 

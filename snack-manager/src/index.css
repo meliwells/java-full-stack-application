@@ -8,22 +8,31 @@ body {
   margin: 0;
 }
 
-.signIn_button {
-  width: auto;
-  background-color: #d1495b;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  display: block;
-  margin: 10px auto;
+.checkbox-options {
+  display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px;
 }
 
-.signIn_button:hover {
-  background-color: #8693abff;
+.checkbox-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox-options input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #efc88bff;
+  cursor: pointer;
+  margin-top: 18px;
+}
+
+.checkbox-options input[type="checkbox"]:checked {
+  background-color: rgb(97, 98, 98);
 }
 
 .disneyImage {
@@ -174,6 +183,44 @@ label {
   padding-top: 20px;
 }
 
+.signIn_button {
+  width: auto;
+  background-color: #d1495b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+  align-items: center;
+  text-align: center;
+}
+
+.signIn_button:hover {
+  background-color: #8693abff;
+}
+
+.SnackDetails img {
+  padding-top: 10px;
+}
+
+.snackDetails-button {
+display: block;
+background-color: #d1495b;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 20px auto;
+cursor: pointer;
+border-radius: 5px;
+width: fit-content;
+}
+
 .snack-item {
   list-style-type: none;
   padding: 10px;
@@ -209,7 +256,6 @@ label {
   border-radius: 5px;
   width: fit-content;
 }
-
 
 @media (max-width: 600px) {
   .header {
