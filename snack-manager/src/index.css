@@ -1,3 +1,12 @@
+  
+  .Admin h3 {
+  background-color: #d1495b;
+  padding-top: 4px;
+  margin: 0px;
+  font-size: 14px;
+  padding-bottom: 5px;
+  }
+
 
 body {
 font-family: Arial, sans-serif;

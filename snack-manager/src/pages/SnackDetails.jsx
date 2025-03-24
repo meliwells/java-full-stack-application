@@ -33,7 +33,6 @@ useEffect(() => {
       })
   
       .then(data => {
-        console.log("Snack data", data); //testing location - take out after fixed
         setSnack(data);
       })
       .catch(error => {
@@ -74,7 +73,7 @@ return (
       <img src={`/images/${snack.imagePath}`} alt={snack.title} />
         <h1><strong>{snack.title}</strong> - ${snack.price} </h1>
         <p>{snack.description}</p>
-        <p>Available at: {snack.parkLocation}</p>
+        <p><em>Available at: {snack.parkLocation}</em></p>
         
         <div className="checkbox-options">
           <label>

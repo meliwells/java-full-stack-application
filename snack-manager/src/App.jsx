@@ -5,8 +5,10 @@ import Footer from './components/Footer';
 import SignIn from './pages/SignIn';
 import Home from './pages/Home'; 
 import SnackList from './pages/SnackList';
-import SnackDetails from './components/SnackDetails';
+import SnackDetails from './pages/SnackDetails.jsx';
 import SignUp from './pages/signUp';
+import AdminSnackList from './pages/AdminSnackList.jsx';
+import AdminSnackDetails from './pages/AdminSnackDetails.jsx';
 
 export default function App() {
    return (
@@ -19,6 +21,8 @@ export default function App() {
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/snackList" element={<SnackList />} />
             <Route path="/snackDetails/:snacksId" element={<SnackDetails />} />
+            <Route path="/adminSnackList" element={<AdminSnackList />} />
+            <Route path="/adminSnackDetails/:snacksId" element={<AdminSnackDetails />} />
           </Routes>
           <Footer />
         </div>
