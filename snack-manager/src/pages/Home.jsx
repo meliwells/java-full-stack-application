@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <div>
+    <div className="Home">
       <div className="homeImage">
         <img src="images/disney_mainstreet.jpg" alt="Main Street" />
       </div>

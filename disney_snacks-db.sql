@@ -85,5 +85,7 @@ FROM
     snacks
 INNER JOIN
     location ON snacks.location_id = location.location_id;
+    
+    SELECT * FROM users;
 	
 

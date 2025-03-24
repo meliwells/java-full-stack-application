@@ -1,277 +1,284 @@
 
 body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
+font-family: Arial, sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+margin: 0;
 }
 
 .checkbox-options {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  padding: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 30px;
+padding: 10px;
 }
 
 .checkbox-options label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+display: flex;
+align-items: center;
+gap: 10px;
 }
 
 .checkbox-options input[type="checkbox"] {
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background-color: #efc88bff;
-  cursor: pointer;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+appearance: none;
+width: 20px;
+height: 20px;
+background-color: #efc88bff;
+cursor: pointer;
+margin-top: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
 }
 
 .checkbox-options input[type="checkbox"]::before {
-  content: "";
-  width: 12px;
-  height: 12px;
-  background-color: transparent;
-  position: absolute;
-  border-radius: 2px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-60%, -90%);
+content: "";
+width: 12px;
+height: 12px;
+background-color: transparent;
+position: absolute;
+border-radius: 2px;
+top: 50%;
+left: 50%;
+transform: translate(-60%, -90%);
 }
 
 .checkbox-options input[type="checkbox"]:checked::before {
-  content: "✔";
-  font-size: 16px;
-  color: white;
-  font-weight: bold;
+content: "✔";
+font-size: 16px;
+color: white;
+font-weight: bold;
 }
 
 .checkbox-options input[type="checkbox"]:checked {
-  background-color: rgb(97, 98, 98);
+background-color: rgb(97, 98, 98);
 }
 
 .disneyImage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto; 
-  max-width: 600px; 
-  text-align: center; 
-  box-sizing: border-box;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0 auto;
+max-width: 600px;
+text-align: center;
+box-sizing: border-box;
 }
 
 .disneyImage img {
-  width: 300px;
-  max-width: 600px;
-  align-items: center;
-  padding-bottom: 15px;
+width: 300px;
+max-width: 600px;
+align-items: center;
+padding-bottom: 15px;
 }
 
 footer {
-  font-size: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0px;
-  background-color: #31393cff;
-  color: #efefef;
+font-size: 15px;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+background-color: #31393cff;
+color: #efefef;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+width: 100%;
 }
 
 form {
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  text-align: left;
-  margin-top: 10px;
+padding: 20px;
+border-radius: 8px;
+width: 300px;
+text-align: left;
+margin-top: 10px;
 }
 
 form input {
- margin-top: 5px;
- margin-bottom: 50px;
+margin-top: 5px;
+margin-bottom: 50px;
 }
 
-
 h2 {
-  text-align: center;
-  color: #333;
+text-align: center;
+color: #333;
 }
 
 header h1 {
-  margin: 0px;
-  font-size: 30px;
-  color:white;
-  text-align: center;
-  white-space: nowrap;
+margin: 0px;
+font-size: 30px;
+color:white;
+text-align: center;
+white-space: nowrap;
 }
 
 header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: #8693abff;
-  color: white;
-  height: auto;
-  box-sizing: border-box;
-  padding-right: 20px;
-  margin: 0px;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+background-color: #8693abff;
+color: white;
+height: auto;
+box-sizing: border-box;
+padding-right: 20px;
+margin: 0px;
+}
+
+.Home {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .homeImage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto; 
-  max-width: 600px; 
-  text-align: center; 
-  box-sizing: border-box;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0 auto;
+max-width: 600px;
+text-align: center;
+box-sizing: border-box;
 }
 
 .homeImage img {
-  max-width: 100%;
-  height: auto;
-  display: block; 
-  margin: 0 auto;
+max-width: 100%;
+height: auto;
+display: block;
+margin: 0 auto;
 }
 
 input {
-  background-color: #efc88bff;
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+background-color: #efc88bff;
+width: 100%;
+padding: 10px;
+margin-bottom: 20px;
+border: 1px solid #ccc;
+border-radius: 4px;
 }
 
 label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
+display: block;
+margin-bottom: 8px;
+font-weight: bold;
 }
 
 .login_button {
-  background-color: #d1495b;
-  border: none;
-  color: white;
-  padding: 12px 28px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 30px;
-  cursor: pointer;
-  border-radius: 5px;
+background-color: #d1495b;
+border: none;
+color: white;
+padding: 12px 28px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 30px;
+cursor: pointer;
+border-radius: 5px;
 }
 
 .login_button:hover {
-  background-color: #8693abff;
+background-color: #8693abff;
 }
 
 .logo {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0 auto; 
-  max-width: 600px; 
-  text-align: center; 
-  box-sizing: border-box;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+margin: 0 auto;
+max-width: 600px;
+text-align: center;
+box-sizing: border-box;
 }
 
 .logo img {
-  max-width: 30%;
-  height: auto;
-  margin: 0;
+max-width: 30%;
+height: auto;
+margin: 0;
 }
 
 .logout_button {
-  background-color: #d1495b;
-  border: none;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 20px;
-  margin-bottom: 35px;
-  cursor: pointer;
-  border-radius: 5px;
+background-color: #d1495b;
+border: none;
+color: white;
+padding: 10px 25px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 20px;
+margin-bottom: 35px;
+cursor: pointer;
+border-radius: 5px;
 }
 
 .logout_button:hover {
-  background-color: #8693abff;
+background-color: #8693abff;
 }
 
 .pretzel {
-  text-align: center;
+text-align: center;
 }
 
 .pretzel img {
-  margin: auto;
-  display: block; 
-  width: 20%;
-  height: 20%;
-  padding-top: 20px;
+margin: auto;
+display: block;
+width: 20%;
+height: 20%;
+padding-top: 20px;
 }
 
 .signIn_button {
-  width: auto;
-  background-color: #d1495b;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  display: block;
-  margin: 10px auto;
-  align-items: center;
-  text-align: center;
+width: auto;
+background-color: #d1495b;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+display: block;
+margin: 10px auto;
+align-items: center;
+text-align: center;
 }
 
 .signIn_button:hover {
-  background-color: #8693abff;
+background-color: #8693abff;
 }
 
 .signUp_button {
-  width: auto;
-  background-color: #d1495b;
-  color: white;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  display: block;
-  margin: 10px auto;
-  align-items: center;
-  text-align: center;
+width: auto;
+background-color: #d1495b;
+color: white;
+padding: 12px 25px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+display: block;
+margin: 10px auto;
+align-items: center;
+text-align: center;
 }
 
 .signUp_button:hover {
-  background-color: #8693abff;
+background-color: #8693abff;
+}
+
+.SnackDetails {
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .SnackDetails img {
-  padding-top: 10px;
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
+padding-top: 10px;
+width: 200px;
+height: 200px;
+object-fit: cover;
 }
 
 .snackDetails-button {
@@ -291,76 +298,84 @@ width: fit-content;
 }
 
 .snack-item {
-  list-style-type: none;
-  padding: 10px;
-  text-align: center;
-  align-items: center;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #ddd;
+list-style-type: none;
+padding: 10px;
+text-align: center;
+align-items: center;
+margin-bottom: 15px;
+border-bottom: 1px solid #ddd;
+width: 490px;
+}
+
+.SnackList {
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .SnackList h1 {
-  background-color: #efc88bff;
-  padding: 5px;
-  margin: 0;
-  font-size: 25px;
+background-color: #efc88bff;
+padding: 5px;
+margin: 0;
+font-size: 25px;
 }
 
 .SnackList h2 {
-  background-color: #efc88bff;
-  padding-top: 0px;
-  margin: 0px;
-  font-size: 14px;
-  padding-bottom: 5px;
+background-color: #efc88bff;
+padding-top: 0px;
+margin: 0px;
+font-size: 14px;
+padding-bottom: 5px;
 }
 
 .snack_list_button {
-  display: block;
-  background-color: #d1495b;
-  border: none;
-  color: white;
-  padding: 12px 28px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 20px auto;
-  cursor: pointer;
-  border-radius: 5px;
-  width: fit-content;
+display: block;
+background-color: #d1495b;
+border: none;
+color: white;
+padding: 12px 28px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 20px auto;
+cursor: pointer;
+border-radius: 5px;
+width: fit-content;
 }
 
 .snack-preference {
-  padding: 5px;
-  padding-top: 0px;
-  color: #d1495b;
- 
+padding: 5px;
+padding-top: 0px;
+color: #d1495b;
+
 }
 
 .snack-preference span {
-  margin-bottom: 10px;
-  display: block;
+margin-bottom: 10px;
+display: block;
 }
+
 
 @media (max-width: 600px) {
-  .header {
-    font-size: 18px;
-  }  
-  
-  .footer {
-    font-size: 12px;
-  }
+.header {
+  font-size: 18px;
+}  
+
+.footer {
+  font-size: 12px;
+}
 }
 
-@Media (max-width: 480px) {
-  .header {
-    font-size: 16px;  
-  }
 
-  @media (max-width: 600px) {
-    .homeImage img {
-      max-width: 90%; 
-    }
+@Media (max-width: 480px) {
+.header {
+  font-size: 16px;  
+}
+
+
+@media (max-width: 600px) {
+  .homeImage img {
+    max-width: 90%;
   }
+}
 
 }
