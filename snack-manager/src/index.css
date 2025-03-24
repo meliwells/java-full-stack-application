@@ -249,6 +249,24 @@ label {
   background-color: #8693abff;
 }
 
+.signUp_button {
+  width: auto;
+  background-color: #d1495b;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+  align-items: center;
+  text-align: center;
+}
+
+.signUp_button:hover {
+  background-color: #8693abff;
+}
+
 .SnackDetails img {
   padding-top: 10px;
   width: 200px;
@@ -316,7 +334,7 @@ width: fit-content;
   padding: 5px;
   padding-top: 0px;
   color: #d1495b;
-  font-weight: bold;
+ 
 }
 
 .snack-preference span {

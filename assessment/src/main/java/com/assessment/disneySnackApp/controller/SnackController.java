@@ -9,6 +9,7 @@ import com.assessment.disneySnackApp.data.repository.SnacksRepository;
 import com.assessment.disneySnackApp.data.repository.UserSnackPreferenceRepository;
 import com.assessment.disneySnackApp.data.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
@@ -42,5 +43,10 @@ public class SnackController implements Serializable {
     @GetMapping("snacks/{snacksId}")
     public Snacks getSnacks(@PathVariable int snacksId) {
         return snacksRepository.findById(snacksId).get();
+    }
+
+    @PostMapping(value= "/signUp")
+    public ResponseEntity<String> signUp(@RequestBody Users users) {
+        
     }
 }

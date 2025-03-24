@@ -6,6 +6,7 @@ import SignIn from './pages/SignIn';
 import Home from './pages/Home'; 
 import SnackList from './pages/SnackList';
 import SnackDetails from './components/SnackDetails';
+import SignUp from './pages/signUp';
 
 export default function App() {
    return (
@@ -15,6 +16,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/signIn" element={<SignIn />} />
+            <Route path="/signUp" element={<SignUp />} />
             <Route path="/snackList" element={<SnackList />} />
             <Route path="/snackDetails/:snacksId" element={<SnackDetails />} />
           </Routes>
