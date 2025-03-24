@@ -15,19 +15,26 @@ public class Snacks {
     String imagePath;
     String description;
     double price;
-    int locationId;
+
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
+
+    public String getParkLocation() {
+        return location != null ? location.getParkLocation() : "Unknown";
+    }
 
 
     public Snacks() {
     }
 
-    public Snacks(int snacksId, String title, String imagePath, String description, double price, int locationId) {
+    public Snacks(int snacksId, String title, String imagePath, String description, double price, Location location) {
         this.snacksId = snacksId;
         this.title = title;
         this.imagePath = imagePath;
         this.description = description;
         this.price = price;
-        this.locationId = locationId;
+        this.location = location;
     }
 
     public int getSnacksId() {
@@ -70,12 +77,12 @@ public class Snacks {
         this.price = price;
     }
 
-    public int getLocationId() {
-        return locationId;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setLocationId(int locationId) {
-        this.locationId = locationId;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     @Override
@@ -86,7 +93,7 @@ public class Snacks {
                 .add("imagePath='" + imagePath + "'")
                 .add("description='" + description + "'")
                 .add("price=" + price)
-                .add("locationId=" + locationId)
+                .add("location=" + location)
                 .toString();
     }
 }

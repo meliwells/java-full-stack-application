@@ -33,7 +33,7 @@ useEffect(() => {
       })
   
       .then(data => {
-        console.log(snack); //testing location - take out after fixed
+        console.log("Snack data", data); //testing location - take out after fixed
         setSnack(data);
       })
       .catch(error => {

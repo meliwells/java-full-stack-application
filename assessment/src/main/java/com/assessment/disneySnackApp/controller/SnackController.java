@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -45,8 +46,9 @@ public class SnackController implements Serializable {
         return snacksRepository.findById(snacksId).get();
     }
 
-    @PostMapping(value= "/signUp")
-    public ResponseEntity<String> signUp(@RequestBody Users users) {
-        
+    @PostMapping
+    public Users addUsers(@RequestBody Users users) {
+        System.out.println(users);
+        return usersRepository.save(users);
     }
 }
