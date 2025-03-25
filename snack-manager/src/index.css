@@ -1,11 +1,34 @@
   
-  .Admin h3 {
+.Admin h3 {
   background-color: #d1495b;
   padding-top: 4px;
   margin: 0px;
   font-size: 14px;
   padding-bottom: 5px;
-  }
+}
+
+.AdminSnackDetails form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+  
+.AdminSnackDetails form {
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: left;
+  margin-top: 10px;
+}
+  
+.AdminSnackDetails form input {
+  margin-top: 5px;
+  margin-bottom: 50px;
+}
+
 
 
 body {

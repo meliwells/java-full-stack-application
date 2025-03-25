@@ -53,8 +53,8 @@ useEffect(() => {
             </li>
           ))}
         </ul>
-        <div className="louout-container">
-        <Link to="/" className="logout_button">Logout</Link>
+        <div className="logout-container">
+        <Link to="/AddNewSnack" className="logout_button">Add New</Link>
         </div>
       </div>
     </div>

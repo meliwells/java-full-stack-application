@@ -9,6 +9,7 @@ import SnackDetails from './pages/SnackDetails.jsx';
 import SignUp from './pages/signUp';
 import AdminSnackList from './pages/AdminSnackList.jsx';
 import AdminSnackDetails from './pages/AdminSnackDetails.jsx';
+import AddNewSnack from './pages/AddNewSnack.jsx';
 
 export default function App() {
    return (
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/snackDetails/:snacksId" element={<SnackDetails />} />
             <Route path="/adminSnackList" element={<AdminSnackList />} />
             <Route path="/adminSnackDetails/:snacksId" element={<AdminSnackDetails />} />
+            <Route path="/addNewSnack" element={<AddNewSnack />} />
           </Routes>
           <Footer />
         </div>

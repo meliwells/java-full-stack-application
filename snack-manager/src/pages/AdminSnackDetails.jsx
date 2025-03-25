@@ -1,57 +1,137 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import '../App.css';
 
 export default function AdminSnackDetails() {
-    const [snack, setSnack] = useState(null);
     const { snacksId } = useParams();
-    const [error, setError] = useState(null);
-    const [selectedOptions, setSelectedOptions] = useState(() => {
-      return JSON.parse(localStorage.getItem("snackOptions")) || {};
+    const navigate = useNavigate();
+    const [snack, setSnack] = useState({
+        title: '',
+        price: '',
+        description: '',
+        parkLocation:  '', 
+        imagePath: '', 
     });
+    
+    const [imageFile, setImageFile] = useState(null);
 
-    const options = selectedOptions[snacksId] || {
-      favorite: false,
-      wantToTry: false,
-      tried: false,
+    useEffect(() => {
+        fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`)
+        .then(response => response.json())
+        .then(data => setSnack(data))
+        .catch(error => console.error('Error fetching snack details:', error));
+    }, [snacksId])
+
+    const handleChange = (event) => {
+        setSnack({ ...snack, [event.target.name]: event.target.value });
+    };
+
+    const handleImageChange = (event) => {
+        setImageFile(event.target.files[0]);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+       
+        fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(snack)
+        })
+        .then(response => {
+            if (!response.ok) {
+              throw new Error(`failed to update snack`);
+            }
+            return response.json();
+          })
+          .then(() => {
+            alert('Snack updated successfully!')
+            navigate('/AdminSnackList');
+          })
+          .catch(error => console.error('Error updating snack:', error));
+    };
+
+
+    const handleDelete = () => {
+        fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to delete snack');
+            }
+            alert('Snack deleted successfully!');
+            navigate('/AdminSnackList');
+        })
+        .catch(error => console.error('Error deleting snack:', error));
+    };
+
+    const handleCancel = () => {
+        navigate('/AdminSnackList');
     };
     
-useEffect(() => {
-    fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`,
-      {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-      })
-    .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! ${response.status}`);
-        }
-        return response.json();
-      })
-  
-      .then(data => {
-        setSnack(data);
-      })
-      .catch(error => {
-        setError(error.message);
-      });
-    }, [snacksId]);
+    return (
+        <div className="AdminSnackDetails">
+            <h1>Update Snack</h1>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Title:
+                    <input
+                        type="text"
+                        name="title"
+                        value={snack.title}
+                        onChange={handleChange}
+                        required
+                    />    
+                </label>
 
-    if (!snack) return <p>No snack details available.</p>;
-    console.log(snack.imagePath)
-    
-return (
-    <div className="SnackDetails">
-      <img src={`/images/${snack.imagePath}`} alt={snack.title} />
-        <h1><strong>{snack.title}</strong> - ${snack.price} </h1>
-        <p>{snack.description}</p>
-        <p><em>Available at: {snack.parkLocation}</em></p>
+                <label>
+                    Price:
+                    <input
+                        type="number"
+                        name="price"
+                        value={snack.price}
+                        onChange={handleChange}
+                        required
+                    />    
+                </label>
 
-        <Link to="/snackList" className="snackDetails-button">Return to snack list</Link>
+                <label>
+                    Description:
+                    <textarea
+                        name="description"
+                        value={snack.description}
+                        onChange={handleChange}
+                    />    
+                </label>
+
+                <label>
+                    Park Location:
+                    <textarea
+                        name="parkLocation"
+                        value={snack.parkLocation}
+                        onChange={handleChange}
+                    />    
+                </label>
+
+                <label>
+                    Upload Image:
+                    <input
+                        type="file"
+                        name="image"
+                        onChange={handleImageChange}
+                    />    
+                </label>
+
+                <button type="submit">Update Snack</button>
+                <button type="button" onClick={handleDelete}>Delete</button>
+                <button type="button" onClick={handleCancel}>Return to snack list</button>
+            </form>
     </div>
       );
 }  
 
+//update
+//delete
+//cancel

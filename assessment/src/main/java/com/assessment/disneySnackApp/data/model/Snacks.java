@@ -18,7 +18,7 @@ public class Snacks {
 
     @ManyToOne
     @JoinColumn(name = "location_id")
-    private Location location;
+    public Location location;
 
     public String getParkLocation() {
         return location != null ? location.getParkLocation() : "Unknown";

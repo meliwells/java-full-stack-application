@@ -9,12 +9,16 @@ import com.assessment.disneySnackApp.data.repository.SnacksRepository;
 import com.assessment.disneySnackApp.data.repository.UserSnackPreferenceRepository;
 import com.assessment.disneySnackApp.data.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/disneySnacks")
@@ -46,9 +50,34 @@ public class SnackController implements Serializable {
         return snacksRepository.findById(snacksId).get();
     }
 
+//    @PostMapping public Snacks addSnacks(@RequestBody Snacks snacks) {
+//        System.out.println(snacks);
+//        return snacksRepository.save(snacks); }
+
+    @PutMapping("/disneySnacks/snacks/{snacksId}")
+    public ResponseEntity<Snacks> updateSnack(@PathVariable int snacksId, @RequestBody Snacks updatedSnack) {
+        Snacks snacks = snacksRepository.findById(snacksId)
+                .orElseThrow(() -> new RuntimeException("Snack not found"));
+
+        snacks.setTitle(updatedSnack.getTitle());
+        snacks.setDescription(updatedSnack.getDescription());
+        snacks.setPrice(updatedSnack.getPrice());
+
+        Snacks savedSnack = snacksRepository.save(snacks);
+        return ResponseEntity.ok(savedSnack);
+    }
+
     @PostMapping
     public Users addUsers(@RequestBody Users users) {
         System.out.println(users);
         return usersRepository.save(users);
+    }
+
+
+    @DeleteMapping("/{snacksId}")
+    public ResponseEntity deleteSnacks(@PathVariable int snacksId) {
+        System.out.println(snacksId);
+        snacksRepository.deleteById(snacksId);
+        return ResponseEntity.ok().build();
     }
 }
