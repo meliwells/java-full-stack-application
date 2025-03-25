@@ -54,7 +54,7 @@ public class SnackController implements Serializable {
 //        System.out.println(snacks);
 //        return snacksRepository.save(snacks); }
 
-    @PutMapping("/disneySnacks/snacks/{snacksId}")
+    @PutMapping("/{snacksId}")
     public ResponseEntity<Snacks> updateSnack(@PathVariable int snacksId, @RequestBody Snacks updatedSnack) {
         Snacks snacks = snacksRepository.findById(snacksId)
                 .orElseThrow(() -> new RuntimeException("Snack not found"));
@@ -67,10 +67,15 @@ public class SnackController implements Serializable {
         return ResponseEntity.ok(savedSnack);
     }
 
-    @PostMapping
-    public Users addUsers(@RequestBody Users users) {
-        System.out.println(users);
-        return usersRepository.save(users);
+//    @PostMapping("/snacks")
+//    public Snacks addSnack(@RequestBody Snacks snack) {
+//        return snacksRepository.save(snack);
+//    }
+
+    @PostMapping("/snacks")
+    public ResponseEntity<Snacks> addSnack(@RequestBody Snacks snack) {
+        Snacks savedSnack = snacksRepository.save(snack);
+        return ResponseEntity.ok(savedSnack);
     }
 
 
