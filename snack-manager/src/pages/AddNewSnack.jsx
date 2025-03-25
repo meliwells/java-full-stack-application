@@ -1,24 +1,28 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import '../App.css';
 
-export default function AddNewSnack({dispatch}) {
+export default function AddNewSnack() {
    const [title, setTitle] = useState('');
    const [price, setPrice] = useState('');
    const [description, setDescription] = useState('');
-   const [location, setLocation] = useState('');
+   const [parkLocation, setParkLocation] = useState('');
+   const navigate = useNavigate();
 
    const clearForm = () => {
     setTitle('');
     setPrice('');
     setDescription('');
-    setLocation('');
+    setParkLocation('');
    };
 
    const postSnacks = (snacks) => {
     return fetch(`http://localhost:8080/disneySnacks/snacks`, {
         method: 'POST',
-        headers: {'Content-type': 'application/json'},
+        headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
+        },
         body: JSON.stringify(snacks)
     })
     .then(response => response.json())
@@ -28,16 +32,19 @@ export default function AddNewSnack({dispatch}) {
     e.preventDefault();
     const snacksData = {
         title,
-        price,
+        price: Number(price),
         description,
-        location,
+        parkLocation,
     };
-
+    
    postSnacks(snacksData).then((data) => {
-        dispatch({type: 'ADD_SNACK', payload: data});
+    if (data) {
+        alert('Snack added successfully!');
         clearForm();
-        });
-    };
+        navigate('/AdminSnackList');
+    }
+});
+};
 
    return (
     <form className='add-snacks' onSubmit={handleSubmit}>
@@ -65,11 +72,11 @@ export default function AddNewSnack({dispatch}) {
             />
         </div>
         <div>
-        <label>Location</label>
+        <label>Park Location</label>
             <input 
-            value={location} 
+            value={parkLocation} 
             type='text'
-            onChange={(e) => setLocation(e.target.value)}
+            onChange={(e) => setParkLocation(e.target.value)}
             />
         </div>
         <button type="submit">Add Snack</button>

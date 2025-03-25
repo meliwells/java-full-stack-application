@@ -72,10 +72,16 @@ public class SnackController implements Serializable {
 //        return snacksRepository.save(snack);
 //    }
 
+//    @PostMapping("/snacks")
+//    public ResponseEntity<Snacks> addSnack(@RequestBody Snacks snack) {
+//        Snacks savedSnack = snacksRepository.save(snack);
+//        return ResponseEntity.ok(savedSnack);
+//    }
+
     @PostMapping("/snacks")
     public ResponseEntity<Snacks> addSnack(@RequestBody Snacks snack) {
         Snacks savedSnack = snacksRepository.save(snack);
-        return ResponseEntity.ok(savedSnack);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedSnack);
     }
 
 
