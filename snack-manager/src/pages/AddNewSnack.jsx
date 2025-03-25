@@ -6,14 +6,14 @@ export default function AddNewSnack() {
    const [title, setTitle] = useState('');
    const [price, setPrice] = useState('');
    const [description, setDescription] = useState('');
-   const [parkLocation, setParkLocation] = useState('');
+   const [locationId, setLocationId] = useState('');
    const navigate = useNavigate();
 
    const clearForm = () => {
     setTitle('');
     setPrice('');
     setDescription('');
-    setParkLocation('');
+    setLocationId('');
    };
 
    const postSnacks = (snacks) => {
@@ -31,11 +31,14 @@ export default function AddNewSnack() {
    const handleSubmit = (e) => {
     e.preventDefault();
     const snacksData = {
-        title,
-        price: Number(price),
-        description,
-        parkLocation,
-    };
+        title: title,
+        price: price,
+        description: description,
+        location:{
+            locationId: locationId, 
+            parkLocation: parkLocation
+        }
+    }
     
    postSnacks(snacksData).then((data) => {
     if (data) {
@@ -48,6 +51,7 @@ export default function AddNewSnack() {
 
    return (
     <form className='add-snacks' onSubmit={handleSubmit}>
+        <h1>Add A Snack</h1>
         <div>
         <label>Title</label>
             <input 
@@ -72,12 +76,22 @@ export default function AddNewSnack() {
             />
         </div>
         <div>
-        <label>Park Location</label>
-            <input 
-            value={parkLocation} 
-            type='text'
-            onChange={(e) => setParkLocation(e.target.value)}
-            />
+        <label>Park Location:</label>
+        <select
+            value={locationId} 
+            onChange={(e) => setLocationId(e.target.value)}
+            >
+                <option value="">Select an option</option>
+                <option value="1">Adventureland</option>
+                <option value="2">Carts throughout the park</option>
+                <option value="3">Critter Country</option>
+                <option value="4">Fantasyland</option>
+                <option value="5">Frontierland</option>
+                <option value="6">Main Street</option>
+                <option value="7">Mickey's Toontown</option>
+                <option value="8">New Orleans Square</option>
+                <option value="9">Tomorrowland</option>   
+        </select>
         </div>
         <button type="submit">Add Snack</button>
     </form>

@@ -3,7 +3,7 @@ create database disney_snacks;
 use disney_snacks;
 
 CREATE TABLE location (
-    location_id INT PRIMARY KEY AUTO_INCREMENT,
+    location_id INT PRIMARY KEY,
     park_location VARCHAR(128) NOT NULL
 );
 
@@ -42,13 +42,17 @@ CREATE TABLE user_snack_preference (
         REFERENCES snacks(snacks_id)
 );
 
-INSERT INTO location (park_location) VALUES
-('Adventureland'),
-('Frontierland'),
-('Critter Country'),
-('Fantasyland'),
-('Main Street'),
-('Carts throughout park');
+INSERT INTO location (location_id, park_location) VALUES
+(1, 'Adventureland'),
+(2, 'Carts throughout park'),
+(3, 'Critter Country'),
+(4, 'Fantasyland'),
+(5, 'Frontierland'),
+(6, 'Main Street'),
+(7, 'Mickey\'s Toontown'),
+(6, 'New Orleans Square'),
+(6, 'Tomorrowland');
+
 
 INSERT INTO users (users_name, email, role, password_hash) VALUES
 ('Alexis Thornton', 'alexis.thornton94@example.com', 'admin', '$2a$10$7vD8hkRWlB3EYwhN8LU2EOb.cHz2M9b4PK8.r9OKhT1/6ONNw7fbe'),
@@ -86,6 +90,6 @@ FROM
 INNER JOIN
     location ON snacks.location_id = location.location_id;
     
-    SELECT * FROM users;
+    SELECT * FROM snacks;
 	
 
