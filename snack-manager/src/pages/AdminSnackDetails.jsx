@@ -5,22 +5,32 @@ import '../App.css';
 export default function AdminSnackDetails() {
     const { snacksId } = useParams();
     const navigate = useNavigate();
+    
     const [snack, setSnack] = useState({
         title: '',
         price: '',
         description: '',
-        parkLocation:  '', 
+        locationId: '', 
         imagePath: '', 
     });
-    
+
     const [imageFile, setImageFile] = useState(null);
+
 
     useEffect(() => {
         fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`)
-        .then(response => response.json())
-        .then(data => setSnack(data))
-        .catch(error => console.error('Error fetching snack details:', error));
-    }, [snacksId])
+            .then(response => response.json())
+            .then(data => {
+                setSnack({
+                    title: data.title,
+                    price: data.price,
+                    description: data.description,
+                    location_id: data.location?.location_id || '', 
+                    imagePath: data.imagePath
+                });
+            })
+            .catch(error => console.error('Error fetching snack details:', error));
+    }, [snacksId]);
 
     const handleChange = (event) => {
         setSnack({ ...snack, [event.target.name]: event.target.value });
@@ -30,51 +40,65 @@ export default function AdminSnackDetails() {
         setImageFile(event.target.files[0]);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-       
-        fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(snack)
-        })
-        .then(response => {
+
+        const formData = new FormData();
+        formData.append('title', snack.title);
+        formData.append('price', parseFloat(snack.price));
+        formData.append('description', snack.description);
+        formData.append('location_id', parseInt(snack.location_id)); // Ensure ID is sent correctly
+
+        if (imageFile) {
+            formData.append('image', imageFile);
+        }
+
+        try {
+            const response = await fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`, {
+                method: 'PUT',
+                body: formData
+            });
+
             if (!response.ok) {
-              throw new Error(`failed to update snack`);
+                throw new Error('Failed to update snack');
             }
-            return response.json();
-          })
-          .then(() => {
-            alert('Snack updated successfully!')
+
+            alert('Snack updated successfully!');
             navigate('/AdminSnackList');
-          })
-          .catch(error => console.error('Error updating snack:', error));
+        } catch (error) {
+            console.error('Error updating snack:', error);
+        }
     };
 
+    const handleDelete = async () => {
+        try {
+            const response = await fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`, {
+                method: 'DELETE'
+            });
 
-    const handleDelete = () => {
-        fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`, {
-            method: 'DELETE',
-            headers: { 'Content-Type': 'application/json' },
-        })
-        .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to delete snack');
             }
+
             alert('Snack deleted successfully!');
             navigate('/AdminSnackList');
-        })
-        .catch(error => console.error('Error deleting snack:', error));
+        } catch (error) {
+            console.error('Error deleting snack:', error);
+        }
     };
 
     const handleCancel = () => {
         navigate('/AdminSnackList');
     };
-    
+
     return (
+        <div>
+        <div className="Admin">
+        <h1>Administrator</h1>
+      </div>
         <div className="AdminSnackDetails">
-            <h1>Update Snack</h1>
-            <form onSubmit={handleSubmit}>
+            <h2>Update Snack</h2>
+            <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <label>
                     Title:
                     <input
@@ -108,11 +132,23 @@ export default function AdminSnackDetails() {
 
                 <label>
                     Park Location:
-                    <textarea
-                        name="parkLocation"
-                        value={snack.parkLocation}
+                    <select
+                        name="location_id"
+                        value={snack.locationId}
                         onChange={handleChange}
-                    />    
+                        required
+                    >
+                        <option value="">Select an option</option>
+                        <option value="1">Adventureland</option>
+                        <option value="2">Carts throughout the park</option>
+                        <option value="3">Critter Country</option>
+                        <option value="4">Fantasyland</option>
+                        <option value="5">Frontierland</option>
+                        <option value="6">Main Street</option>
+                        <option value="7">Mickey's Toontown</option>
+                        <option value="8">New Orleans Square</option>
+                        <option value="9">Tomorrowland</option>   
+                    </select>
                 </label>
 
                 <label>
@@ -124,13 +160,16 @@ export default function AdminSnackDetails() {
                     />    
                 </label>
 
-                <button type="submit">Update Snack</button>
-                <button type="button" onClick={handleDelete}>Delete</button>
-                <button type="button" onClick={handleCancel}>Return to snack list</button>
+                <div className="update-button">
+                    <button type="submit" className="update-button">Update Snack</button>
+                    <button type="button" className="delete-button" onClick={handleDelete}>Delete</button>
+                    <button type="button" className="cancel-button" onClick={handleCancel}>Return to snack list</button>
+                </div>
             </form>
-    </div>
-      );
-}  
+        </div>
+        </div>
+    );
+}
 
 //update
 //delete

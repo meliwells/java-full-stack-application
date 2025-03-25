@@ -34,10 +34,7 @@ export default function AddNewSnack() {
         title: title,
         price: price,
         description: description,
-        location:{
-            locationId: locationId, 
-            parkLocation: parkLocation
-        }
+        location: {locationId }
     }
     
    postSnacks(snacksData).then((data) => {
@@ -50,8 +47,14 @@ export default function AddNewSnack() {
 };
 
    return (
-    <form className='add-snacks' onSubmit={handleSubmit}>
-        <h1>Add A Snack</h1>
+    <div>
+    <div className="Admin">
+        <h1>Administrator</h1>
+      </div>
+      <div className="add-snacks">
+      <h2>Add A Snack</h2>
+    <form onSubmit={handleSubmit}>
+        
         <div>
         <label>Title</label>
             <input 
@@ -95,5 +98,7 @@ export default function AddNewSnack() {
         </div>
         <button type="submit">Add Snack</button>
     </form>
+    </div>
+    </div>
    )
 }   

@@ -37,7 +37,7 @@ useEffect(() => {
   return (
     <div>
       <div className="Admin">
-        <h3>Administrator</h3>
+        <h1>Administrator</h1>
       </div>
       <div className="SnackList">
         <h1>Snack List</h1>

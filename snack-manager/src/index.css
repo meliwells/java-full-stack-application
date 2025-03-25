@@ -1,5 +1,5 @@
   
-.Admin h3 {
+.Admin h1 {
   background-color: #d1495b;
   padding-top: 4px;
   margin: 0px;
@@ -7,41 +7,49 @@
   padding-bottom: 5px;
 }
 
-.AdminSnackDetails form {
+.AdminSnackDetails, .add-snacks {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 20px;
+  margin: auto;
+  max-width: 600px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.AdminSnackDetails form, .add-snacks form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
   
-.AdminSnackDetails form {
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  text-align: left;
-  margin-top: 10px;
-}
-  
-.AdminSnackDetails form input {
-  margin-top: 5px;
-  margin-bottom: 50px;
+.AdminSnackDetails input,
+.AdminSnackDetails textarea,
+.AdminSnackDetails select 
+.add-snacks input,
+.add-snacks textarea,
+.add-snacks select{
+  margin-bottom: 15px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
 }
 
-.add-snacks {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 300px; */
+.AdminSnackDetails textarea, 
+.AdminSnackDetils select, 
+.add-snacks textarea, 
+.add-snacks select {
+  resize: vertical;
+  padding: 8px;
+}
 
-padding: 20px;
-border-radius: 8px;
-width: 300px;
-text-align: left;
-margin-top: 10px;
+.AdminSnackDetails h2, .add-snacks h2 {
+  font-size: 25px;
+  text-align: center; 
 }
 
 .add-snacks button {
@@ -421,6 +429,26 @@ color: #d1495b;
 .snack-preference span {
 margin-bottom: 10px;
 display: block;
+}
+
+.update-button , .delete-button , .cancel-button {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.update-button button, .delete-button button, .cancel-button button {
+  background-color: #d1495b;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px auto;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 

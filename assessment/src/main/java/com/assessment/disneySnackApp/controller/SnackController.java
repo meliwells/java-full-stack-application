@@ -50,10 +50,6 @@ public class SnackController implements Serializable {
         return snacksRepository.findById(snacksId).get();
     }
 
-//    @PostMapping public Snacks addSnacks(@RequestBody Snacks snacks) {
-//        System.out.println(snacks);
-//        return snacksRepository.save(snacks); }
-
     @PutMapping("/{snacksId}")
     public ResponseEntity<Snacks> updateSnack(@PathVariable int snacksId, @RequestBody Snacks updatedSnack) {
         Snacks snacks = snacksRepository.findById(snacksId)
@@ -67,23 +63,11 @@ public class SnackController implements Serializable {
         return ResponseEntity.ok(savedSnack);
     }
 
-//    @PostMapping("/snacks")
-//    public Snacks addSnack(@RequestBody Snacks snack) {
-//        return snacksRepository.save(snack);
-//    }
-
-//    @PostMapping("/snacks")
-//    public ResponseEntity<Snacks> addSnack(@RequestBody Snacks snack) {
-//        Snacks savedSnack = snacksRepository.save(snack);
-//        return ResponseEntity.ok(savedSnack);
-//    }
-
     @PostMapping("/snacks")
     public ResponseEntity<Snacks> addSnack(@RequestBody Snacks snack) {
         Snacks savedSnack = snacksRepository.save(snack);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedSnack);
     }
-
 
     @DeleteMapping("/{snacksId}")
     public ResponseEntity deleteSnacks(@PathVariable int snacksId) {
