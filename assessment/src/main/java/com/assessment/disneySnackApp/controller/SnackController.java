@@ -50,7 +50,7 @@ public class SnackController implements Serializable {
         return snacksRepository.findById(snacksId).get();
     }
 
-    @PutMapping("/{snacksId}")
+    @PutMapping("/snacks/{snacksId}")
     public ResponseEntity<Snacks> updateSnack(@PathVariable int snacksId, @RequestBody Snacks updatedSnack) {
         Snacks snacks = snacksRepository.findById(snacksId)
                 .orElseThrow(() -> new RuntimeException("Snack not found"));

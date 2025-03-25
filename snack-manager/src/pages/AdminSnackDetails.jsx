@@ -2,22 +2,29 @@ import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import '../App.css';
 
-export default function AdminSnackDetails() {
+
+export default function AdminSnackDetails({snacks, dispatch}) {
     const { snacksId } = useParams();
     const navigate = useNavigate();
-    
+   
     const [snack, setSnack] = useState({
         title: '',
         price: '',
         description: '',
-        locationId: '', 
-        imagePath: '', 
+        locationId: '',
+        //imagePath: '',
     });
 
-    const [imageFile, setImageFile] = useState(null);
+
+    //const [imageFile, setImageFile] = useState(null);
+
+
 
 
     useEffect(() => {
+        const requestOptions = {
+
+        }
         fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`)
             .then(response => response.json())
             .then(data => {
@@ -25,43 +32,54 @@ export default function AdminSnackDetails() {
                     title: data.title,
                     price: data.price,
                     description: data.description,
-                    location_id: data.location?.location_id || '', 
+                    location_id: data.location?.location_id || '',
                     imagePath: data.imagePath
                 });
             })
             .catch(error => console.error('Error fetching snack details:', error));
     }, [snacksId]);
 
+
     const handleChange = (event) => {
         setSnack({ ...snack, [event.target.name]: event.target.value });
     };
+
 
     const handleImageChange = (event) => {
         setImageFile(event.target.files[0]);
     };
 
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const formData = new FormData();
-        formData.append('title', snack.title);
-        formData.append('price', parseFloat(snack.price));
-        formData.append('description', snack.description);
-        formData.append('location_id', parseInt(snack.location_id)); // Ensure ID is sent correctly
+        const updatedSnack = {
+            title: snack.title,
+            price: snack.price,
+            description: snack.description,
+            locationId: snack.locationId,
+        };
 
-        if (imageFile) {
-            formData.append('image', imageFile);
-        }
+
+        // if (imageFile) {
+        //     formData.append('image', imageFile);
+        // }
+
 
         try {
             const response = await fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`, {
                 method: 'PUT',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedSnack),
             });
+
 
             if (!response.ok) {
                 throw new Error('Failed to update snack');
             }
+
 
             alert('Snack updated successfully!');
             navigate('/AdminSnackList');
@@ -70,26 +88,40 @@ export default function AdminSnackDetails() {
         }
     };
 
-    const handleDelete = async () => {
+    const handleDelete = async (e) => {
+        e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`, {
-                method: 'DELETE'
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to delete snack');
+            const success = await deleteSnack(snacksId);
+            if (success) {
+                dispatch({ type: 'DELETE_TASK', payload: snacksId });
+                alert('Snack deleted successfully!');
+                navigate('/AdminSnackList');
+            } else {
+                alert('Failed to delete the snack.');
             }
-
-            alert('Snack deleted successfully!');
-            navigate('/AdminSnackList');
         } catch (error) {
             console.error('Error deleting snack:', error);
         }
     };
+    
+    const deleteSnack = async (snacksId) => {
+        try {
+            const response = await fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+            });
+            return response.ok;
+        } catch (error) {
+            console.error('Error deleting snack:', error);
+            return false;
+        }
+    };
+
 
     const handleCancel = () => {
         navigate('/AdminSnackList');
     };
+
 
     return (
         <div>
@@ -97,7 +129,7 @@ export default function AdminSnackDetails() {
         <h1>Administrator</h1>
       </div>
         <div className="AdminSnackDetails">
-            <h2>Update Snack</h2>
+            <h2>Update/ Delete a Snack</h2>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <label>
                     Title:
@@ -110,6 +142,7 @@ export default function AdminSnackDetails() {
                     />    
                 </label>
 
+
                 <label>
                     Price:
                     <input
@@ -121,6 +154,7 @@ export default function AdminSnackDetails() {
                     />    
                 </label>
 
+
                 <label>
                     Description:
                     <textarea
@@ -129,6 +163,7 @@ export default function AdminSnackDetails() {
                         onChange={handleChange}
                     />    
                 </label>
+
 
                 <label>
                     Park Location:
@@ -147,9 +182,10 @@ export default function AdminSnackDetails() {
                         <option value="6">Main Street</option>
                         <option value="7">Mickey's Toontown</option>
                         <option value="8">New Orleans Square</option>
-                        <option value="9">Tomorrowland</option>   
+                        <option value="9">Tomorrowland</option>  
                     </select>
                 </label>
+
 
                 <label>
                     Upload Image:
@@ -159,6 +195,7 @@ export default function AdminSnackDetails() {
                         onChange={handleImageChange}
                     />    
                 </label>
+
 
                 <div className="update-button">
                     <button type="submit" className="update-button">Update Snack</button>
@@ -171,6 +208,7 @@ export default function AdminSnackDetails() {
     );
 }
 
+
+
 //update
 //delete
-//cancel
