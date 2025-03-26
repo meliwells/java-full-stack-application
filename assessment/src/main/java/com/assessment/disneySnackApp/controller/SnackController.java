@@ -69,7 +69,7 @@ public class SnackController implements Serializable {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedSnack);
     }
 
-    @DeleteMapping("/{snacksId}")
+    @DeleteMapping("/snacks/{snacksId}")
     public ResponseEntity deleteSnacks(@PathVariable int snacksId) {
         System.out.println(snacksId);
         snacksRepository.deleteById(snacksId);

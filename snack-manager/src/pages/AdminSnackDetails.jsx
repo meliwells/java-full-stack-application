@@ -91,31 +91,21 @@ export default function AdminSnackDetails({snacks, dispatch}) {
     const handleDelete = async (e) => {
         e.preventDefault();
         try {
-            const success = await deleteSnack(snacksId);
-            if (success) {
-                dispatch({ type: 'DELETE_TASK', payload: snacksId });
-                alert('Snack deleted successfully!');
-                navigate('/AdminSnackList');
-            } else {
-                alert('Failed to delete the snack.');
-            }
-        } catch (error) {
-            console.error('Error deleting snack:', error);
-        }
-    };
-    
-    const deleteSnack = async (snacksId) => {
-        try {
             const response = await fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`, {
                 method: 'DELETE',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json' }, // Include necessary headers
             });
-            return response.ok;
-        } catch (error) {
-            console.error('Error deleting snack:', error);
-            return false;
-        }
-    };
+    
+            if (!response.ok) {
+                throw new Error('Failed to delete snack');
+            }
+
+            alert('Snack deleted successfully!');
+        navigate('/AdminSnackList');
+    } catch (error) {
+        console.error('Error deleting snack:', error);
+    }
+};
 
 
     const handleCancel = () => {
@@ -187,14 +177,14 @@ export default function AdminSnackDetails({snacks, dispatch}) {
                 </label>
 
 
-                <label>
+                {/* <label>
                     Upload Image:
                     <input
                         type="file"
                         name="image"
                         onChange={handleImageChange}
                     />    
-                </label>
+                </label> */}
 
 
                 <div className="update-button">
@@ -207,8 +197,3 @@ export default function AdminSnackDetails({snacks, dispatch}) {
         </div>
     );
 }
-
-
-
-//update
-//delete
