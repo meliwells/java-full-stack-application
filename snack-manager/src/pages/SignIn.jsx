@@ -25,7 +25,6 @@ export default function SignIn() {
       navigate("/snackList");
     };
 
-
     return (
       <div className="SignIn">
         <div className="form">

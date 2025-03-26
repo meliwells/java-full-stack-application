@@ -96,8 +96,10 @@ export default function AddNewSnack() {
                 <option value="9">Tomorrowland</option>   
         </select>
         </div>
+        <div className="admin-snack-buttons">
         <button type="submit">Add Snack</button>
-        <Link to="/AdminSnackList" className="logout_button">Return to snack list</Link>
+        <Link to="/AdminSnackList" className="return-to-admin-list_button">Return to snack list</Link>
+        </div>
     </form>
     </div>
     </div>
