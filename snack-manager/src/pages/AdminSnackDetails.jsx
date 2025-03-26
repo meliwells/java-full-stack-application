@@ -41,9 +41,9 @@ export default function AdminSnackDetails({snacks, dispatch}) {
     };
 
 
-    const handleImageChange = (event) => {
-        setImageFile(event.target.files[0]);
-    };
+    // const handleImageChange = (event) => {
+    //     setImageFile(event.target.files[0]);
+    // };
 
 
     const handleSubmit = async (event) => {
@@ -85,10 +85,17 @@ export default function AdminSnackDetails({snacks, dispatch}) {
 
     const handleDelete = async (e) => {
         e.preventDefault();
+
+        const confirmDelete = window.confirm('Are you sure you want to delete this snack?');
+    
+        if (!confirmDelete) {
+            return; 
+        }
+
         try {
             const response = await fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`, {
                 method: 'DELETE',
-                headers: { 'Content-Type': 'application/json' }, // Include necessary headers
+                headers: { 'Content-Type': 'application/json' },
             });
     
             if (!response.ok) {
