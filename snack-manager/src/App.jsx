@@ -10,6 +10,7 @@ import SignUp from './pages/signUp';
 import AdminSnackList from './pages/AdminSnackList.jsx';
 import AdminSnackDetails from './pages/AdminSnackDetails.jsx';
 import AddNewSnack from './pages/AddNewSnack.jsx';
+import AdminRoute from './components/AdminRoute.jsx';
 
 export default function App() {
    return (
@@ -25,7 +26,7 @@ export default function App() {
             <Route path="/adminSnackList" element={<AdminSnackList />} />
             <Route path="/adminSnackDetails/:snacksId" element={<AdminSnackDetails />} />
             <Route path="/addNewSnack" element={<AddNewSnack />} />
-            <Route path="/adminDashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
+            <Route path="/adminSnackList" element={<AdminRoute><AdminSnackList /></AdminRoute>} />
           </Routes>
           <Footer />
         </div>
