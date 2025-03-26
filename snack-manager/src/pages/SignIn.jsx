@@ -18,12 +18,33 @@ export default function SignIn() {
       const value = event.target.value;
       setInputs(values => ({...values, [name]: value}))
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
       event.preventDefault();
-      alert(`Email: ${inputs.email}, Password: ${inputs.password}`);
 
-      navigate("/snackList");
-    };
+      try {
+        const response = await fetch("http://localhost:8080/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(inputs),
+        });
+
+        if (!response.ok) {
+          alert("Invalid login credentials");
+          return;
+      }
+
+      const data = await response.json();
+        localStorage.setItem("userRole", data.role); 
+
+        if (data.role === "ADMIN") {
+            navigate("/adminSnackList");
+        } else {
+            navigate("/snackList");
+        }
+    } catch (error) {
+        console.error("Login error:", error);
+    }
+};
 
     return (
       <div className="SignIn">
@@ -55,7 +76,6 @@ export default function SignIn() {
           </form>
           <p>Don't have an account? <Link to="/signUp" className="signup_button">Sign up here.</Link></p>
         </div>
-        
       </div>
     );
 }

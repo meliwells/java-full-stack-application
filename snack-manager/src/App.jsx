@@ -25,6 +25,7 @@ export default function App() {
             <Route path="/adminSnackList" element={<AdminSnackList />} />
             <Route path="/adminSnackDetails/:snacksId" element={<AdminSnackDetails />} />
             <Route path="/addNewSnack" element={<AddNewSnack />} />
+            <Route path="/adminDashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
           </Routes>
           <Footer />
         </div>

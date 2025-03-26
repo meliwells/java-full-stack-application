@@ -6,7 +6,7 @@ import java.util.StringJoiner;
 
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,6 +14,10 @@ public class Users {
     String usersName;
     String email;
     String passwordHash;
+
+    @Enumerated(EnumType.STRING)
+    public Role role;
+
     public enum Role {
         USER,
         ADMIN;
@@ -22,11 +26,12 @@ public class Users {
     public Users() {
     }
 
-    public Users(int usersId, String usersName, String email, String passwordHash) {
+    public Users(int usersId, String usersName, String email, String passwordHash, Role role) {
         this.usersId = usersId;
         this.usersName = usersName;
         this.email = email;
         this.passwordHash = passwordHash;
+        this.role = role;
     }
 
     public int getUsersId() {
@@ -61,6 +66,14 @@ public class Users {
         this.passwordHash = passwordHash;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return new StringJoiner(", ", Users.class.getSimpleName() + "[", "]")
@@ -68,6 +81,7 @@ public class Users {
                 .add("usersName='" + usersName + "'")
                 .add("email='" + email + "'")
                 .add("passwordHash='" + passwordHash + "'")
+                .add("role=" + role)
                 .toString();
     }
 }
