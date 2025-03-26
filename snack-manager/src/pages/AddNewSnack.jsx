@@ -56,7 +56,7 @@ export default function AddNewSnack() {
     <form onSubmit={handleSubmit}>
         
         <div>
-        <label>Title</label>
+        <label>Title:</label>
             <input 
             value={title} 
             type='text'
@@ -64,7 +64,7 @@ export default function AddNewSnack() {
             />
         </div>
         <div>
-        <label>Price</label>
+        <label>Price:</label>
             <input
             value={price}
             type='number'
@@ -72,7 +72,7 @@ export default function AddNewSnack() {
             />
         </div>
         <div>
-            <label>Description</label>
+            <label>Description:</label>
             <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -97,6 +97,7 @@ export default function AddNewSnack() {
         </select>
         </div>
         <button type="submit">Add Snack</button>
+        <Link to="/AdminSnackList" className="logout_button">Return to snack list</Link>
     </form>
     </div>
     </div>

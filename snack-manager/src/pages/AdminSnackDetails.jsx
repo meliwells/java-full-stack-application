@@ -15,11 +15,7 @@ export default function AdminSnackDetails({snacks, dispatch}) {
         //imagePath: '',
     });
 
-
     //const [imageFile, setImageFile] = useState(null);
-
-
-
 
     useEffect(() => {
         const requestOptions = {
@@ -65,7 +61,6 @@ export default function AdminSnackDetails({snacks, dispatch}) {
         //     formData.append('image', imageFile);
         // }
 
-
         try {
             const response = await fetch(`http://localhost:8080/disneySnacks/snacks/${snacksId}`, {
                 method: 'PUT',
@@ -107,11 +102,9 @@ export default function AdminSnackDetails({snacks, dispatch}) {
     }
 };
 
-
     const handleCancel = () => {
         navigate('/AdminSnackList');
     };
-
 
     return (
         <div>
@@ -132,7 +125,6 @@ export default function AdminSnackDetails({snacks, dispatch}) {
                     />    
                 </label>
 
-
                 <label>
                     Price:
                     <input
@@ -144,7 +136,6 @@ export default function AdminSnackDetails({snacks, dispatch}) {
                     />    
                 </label>
 
-
                 <label>
                     Description:
                     <textarea
@@ -154,11 +145,10 @@ export default function AdminSnackDetails({snacks, dispatch}) {
                     />    
                 </label>
 
-
                 <label>
                     Park Location:
                     <select
-                        name="location_id"
+                        name="locationId"
                         value={snack.locationId}
                         onChange={handleChange}
                         required
@@ -185,7 +175,6 @@ export default function AdminSnackDetails({snacks, dispatch}) {
                         onChange={handleImageChange}
                     />    
                 </label> */}
-
 
                 <div className="update-button">
                     <button type="submit" className="update-button">Update Snack</button>
