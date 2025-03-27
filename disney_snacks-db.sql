@@ -11,7 +11,7 @@ CREATE TABLE users (
     users_id INT PRIMARY KEY AUTO_INCREMENT,
     users_name VARCHAR(128) UNIQUE NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
-    role ENUM('user', 'admin') NOT NULL,
+    role ENUM('USER', 'ADMIN') NOT NULL,
     password_hash VARCHAR(1000) NOT NULL
 );
 
@@ -50,17 +50,17 @@ INSERT INTO location (location_id, park_location) VALUES
 (5, 'Frontierland'),
 (6, 'Main Street'),
 (7, 'Mickey\'s Toontown'),
-(6, 'New Orleans Square'),
-(6, 'Tomorrowland');
+(8, 'New Orleans Square'),
+(9, 'Tomorrowland');
 
 
 INSERT INTO users (users_name, email, role, password_hash) VALUES
-('Alexis Thornton', 'alexis.thornton94@example.com', 'admin', '$2a$10$7vD8hkRWlB3EYwhN8LU2EOb.cHz2M9b4PK8.r9OKhT1/6ONNw7fbe'),
-('Jordan Ramirez', 'jordan.ramirez78@example.com', 'admin', '$8a$70$7tD8hkSYlB3EYvbN8LE4EOt.cMz6N8b4SR8.r9OKhT1/48NNw7rbs'),
-('Taylor Morgan', 'taylor.morgan22@example.com', 'user', '$2b$12$Xa3DF2Jkq1Z1MlYPBjvOJevz/BX2ruDOK2PpQd6oeJlAqa0tNpLtu'),
-('Riley Bennett', 'riley.bennett89@example.com', 'user', '$2a$10$kG2reN5fDZfpLZR3w0/OVOWkN8IPUbfTPDRH7Mfi8hW1/E3M1TtOi'),
-('Parker Ellis', 'parker.ellis74@example.com', 'admin', '$2b$10$3Mw7EYwhAq5F8T7OPBNVQ67EVTZBnR2K1p7XgJwLPLs/WTgNE8WvQ'),
-('Casey Phillips', 'casey.phillips57@example.com', 'user', '$2y$10$Z4wHtQDrA7pF6TBcEV2MHQ8PBvN9XqRdWLKJfyT4XjtMW37P0UKTe');
+('Alexis Thornton', 'alexis.thornton94@example.com', 'admin', 'Password'),
+('Jordan Ramirez', 'jordan.ramirez78@example.com', 'admin', 'Password'),
+('Taylor Morgan', 'taylor.morgan22@example.com', 'user', 'Password'),
+('Riley Bennett', 'riley.bennett89@example.com', 'user', 'Password'),
+('Parker Ellis', 'parker.ellis74@example.com', 'admin', 'Password'),
+('Casey Phillips', 'casey.phillips57@example.com', 'user', 'Password');
 
 INSERT INTO snacks (title, image_path, description, price, location_id) VALUES 
 ('Dole Pineapple Whip','/dole_whip.jpg', 'A refreshing soft-serve pineapple dessert loved by many', 5.00, 1), 
@@ -91,5 +91,5 @@ INNER JOIN
     location ON snacks.location_id = location.location_id;
     
     SELECT * FROM snacks;
-	
+	SELECT * FROM users;
 
