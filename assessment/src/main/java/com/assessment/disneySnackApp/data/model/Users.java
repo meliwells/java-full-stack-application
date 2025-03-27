@@ -19,6 +19,7 @@ public class Users {
     public Role role;
 
     public Users(Role role) {
+        this.role = role;
     }
 
     public enum Role {

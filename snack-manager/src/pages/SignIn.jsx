@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
     const [inputs, setInputs] = useState({ email: "", password: ""});
+    const [errorMessage, setErrorMessage] = useState("");
     const navigate = useNavigate();
     
     const handleChange = (event) => {
@@ -29,9 +30,17 @@ export default function SignIn() {
         });
 
         if (!response.ok) {
-          alert("Invalid login credentials");
-          return;
-      }
+          const errorData = await response.json();   
+            let errorMessage = "Invalid login credentials";
+            try {
+                const parsedError = JSON.parse(errorData);  
+                errorMessage = parsedError.message || errorMessage;  
+            } catch (error) {
+                errorMessage = errorData; 
+            }
+            setErrorMessage(errorMessage);
+            return;
+        }
 
       const data = await response.json();
         localStorage.setItem("userRole", data.role); 

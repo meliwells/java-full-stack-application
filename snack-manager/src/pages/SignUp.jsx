@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
-    const [inputs, setInputs] = useState({ email: "", password: "", confirmPassword: "" });
+    const [inputs, setInputs] = useState({ email: "", password: "", confirmPassword: "", usersName: ""  });
     const navigate = useNavigate();
 
     const handleChange =  (event) => {
@@ -20,20 +20,25 @@ export default function SignUp() {
             }
     
             try {
-                const response = await fetch(`http://localhost:8080/auth/signUp`, {
+                const response = await fetch("http://localhost:8080/auth/signup", {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ email: inputs.email, password: inputs.password }),
+                    body: JSON.stringify({
+                      email: inputs.email,
+                      password: inputs.password,
+                      usersName: inputs.usersName,
+                  }),
             });
         
             if (response.ok) {
                 alert("Account created successfully");
                 navigate("/signIn");
             } else {
-                alert("Something went wrong, please try again.");
+                const errorData = await response.json();
+                alert(errorData.message || "Something went wrong, please try again.");
             }
         } catch (error) {
                 console.error("Error:", error);
@@ -46,6 +51,16 @@ export default function SignUp() {
             <div className="form">
             <h2>Sign Up</h2>
             <form onSubmit={handleSubmit}>
+            <div>
+    <label>Enter Name:</label>
+    <input
+        type="text"
+        name="usersName"
+        value={inputs.usersName}
+        onChange={handleChange}
+        required
+    />
+</div>  
             <div>
               <label>Enter Email:</label>
               <input

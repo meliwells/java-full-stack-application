@@ -11,7 +11,7 @@ CREATE TABLE users (
     users_id INT PRIMARY KEY AUTO_INCREMENT,
     users_name VARCHAR(128) UNIQUE NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
-    role ENUM('user', 'admin') NOT NULL,
+    role ENUM('USER', 'ADMIN') NOT NULL,
     password_hash VARCHAR(1000) NOT NULL
 );
 
@@ -50,8 +50,8 @@ INSERT INTO location (location_id, park_location) VALUES
 (5, 'Frontierland'),
 (6, 'Main Street'),
 (7, 'Mickey\'s Toontown'),
-(6, 'New Orleans Square'),
-(6, 'Tomorrowland');
+(8, 'New Orleans Square'),
+(9, 'Tomorrowland');
 
 
 INSERT INTO users (users_name, email, role, password_hash) VALUES
@@ -91,5 +91,5 @@ INNER JOIN
     location ON snacks.location_id = location.location_id;
     
     SELECT * FROM snacks;
-	
+	SELECT * FROM users;
 
