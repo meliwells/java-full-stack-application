@@ -20,7 +20,7 @@ export default function SignUp() {
             }
     
             try {
-                const response = await fetch(`http://localhost:8080/disneySnacks/signUp`, {
+                const response = await fetch(`http://localhost:8080/auth/signUp`, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',

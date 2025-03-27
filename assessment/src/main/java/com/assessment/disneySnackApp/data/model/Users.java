@@ -18,6 +18,9 @@ public class Users {
     @Enumerated(EnumType.STRING)
     public Role role;
 
+    public Users(Role role) {
+    }
+
     public enum Role {
         USER,
         ADMIN;

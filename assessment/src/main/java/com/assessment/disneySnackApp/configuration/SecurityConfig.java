@@ -1,4 +1,4 @@
-package com.assessment.configuration;
+package com.assessment.disneySnackApp.configuration;
 
 
 import org.springframework.context.annotation.Bean;
